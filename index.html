@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBOOK EMPIRE | Linktree</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #e5e0d8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 40px;
+  }
+
+  .card {
+    background: #f5f2ee;
+    width: 100%;
+    max-width: 580px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 20px 16px;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+
+  .name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+  }
+
+  .bio {
+    font-size: 0.9rem;
+    color: #444;
+    text-align: center;
+    max-width: 300px;
+    line-height: 1.4;
+  }
+
+  /* Social icons */
+  .socials {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+  }
+
+  .socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    color: #1a1a1a;
+    transition: transform 0.15s;
+    text-decoration: none;
+  }
+
+  .socials a:hover { transform: scale(1.12); }
+  .socials svg { width: 26px; height: 26px; }
+
+  /* Tab nav */
+  .tab-nav {
+    display: flex;
+    background: rgba(0,0,0,0.35);
+    border-radius: 14px;
+    padding: 3px;
+    width: 180px;
+    margin: 12px auto 0;
+  }
+
+  .tab-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .tab-btn.active {
+    background: #fff;
+    color: #1a1a1a;
+  }
+
+  /* Content area */
+  .content {
+    padding: 16px 16px 24px;
+  }
+
+  /* SHOP - 2 col grid */
+  .shop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .shop-grid .featured {
+    grid-column: 1 / -1;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+
+  .product-card .thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    background: #e8e4de;
+  }
+
+  .featured .thumb {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .product-chin {
+    padding: 10px 12px 12px;
+  }
+
+  .product-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .featured .product-title {
+    text-align: center;
+    white-space: normal;
+  }
+
+  .product-price {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 2px;
+  }
+
+  .featured .product-price { text-align: center; }
+
+  /* LINKS tab */
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .link-item {
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #1a1a1a;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    transition: transform 0.15s, box-shadow 0.15s;
+    min-height: 64px;
+  }
+
+  .link-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  }
+
+  .link-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #e8e4de;
+  }
+
+  .link-label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0 12px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 16px 0 8px;
+    font-size: 0.7rem;
+    color: #999;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer a {
+    color: #999;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Header -->
+  <div class="header">
+    <img class="avatar"
+      src="https://ugc.production.linktr.ee/b4d082a7-e793-4ba6-9142-8142a0b9d573_Untitled-design.png?io=true&size=avatar-v3_0"
+      alt="EBOOK EMPIRE">
+    <div class="name">Mme Lynette Zounmenou</div>
+    <div class="bio">📚 Créez des ebooks avec ChatGPT et vendez-les sur Amazon KDP ! 🚀</div>
+
+    <div class="socials">
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@rocketbookcreator" target="_blank" title="TikTok">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.9453 8.68918V15.6727C15.9453 19.1598 13.1048 22.0004 9.6177 22.0004C8.27369 22.0004 7.01685 21.5717 5.99251 20.8525C4.35796 19.7047 3.29004 17.8085 3.29004 15.6727C3.29004 12.1783 6.12333 9.34505 9.6104 9.34505C9.90101 9.34505 10.1843 9.36685 10.4676 9.40318V12.9121H10.4386C10.3151 12.8758 10.1843 12.8394 10.0536 12.8177H9.9954C9.86466 12.8032 9.74114 12.7813 9.60309 12.7813C8.00491 12.7813 6.70448 14.0817 6.70448 15.6799C6.70448 17.2782 8.00491 18.5786 9.60309 18.5786C11.2014 18.5786 12.5018 17.2782 12.5018 15.6799V2.00037H15.938C15.938 2.29822 15.9671 2.58881 16.0179 2.87213C16.2649 4.1798 17.035 5.30584 18.1175 6.01053C18.873 6.50452 19.7593 6.78785 20.7182 6.78785V10.2241C18.9416 10.2241 17.288 9.65222 15.9453 8.68918Z"/></svg>
+      </a>
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@amazonkdp8495" target="_blank" title="YouTube">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.8142 5.41679C20.6763 5.64906 21.3541 6.32675 21.5832 7.18581C22 8.74483 22 11.9997 22 11.9997C22 11.9997 22 15.2545 21.5832 16.8136C21.3509 17.6757 20.6733 18.3535 19.8142 18.5825C18.2551 18.9993 12 18.9993 12 18.9993C12 18.9993 5.74801 18.9993 4.18581 18.5825C3.32358 18.3502 2.64588 17.6726 2.4168 16.8136C2 15.2545 2 11.9997 2 11.9997C2 11.9997 2 8.74483 2.4168 7.18581C2.64907 6.32358 3.32676 5.64588 4.18581 5.41679C5.74801 5 12 5 12 5C12 5 18.2551 5 19.8142 5.41679ZM15.1961 11.9992L10.0004 14.9994V8.99883L15.1961 11.9992Z"/></svg>
+      </a>
+      <!-- Email -->
+      <a href="mailto:contact@amazon-kdp.fr" title="Email">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.30606 7.28017C4.14002 7.62375 4.06901 7.99473 4.03469 8.4148C3.99999 8.83953 3.99999 9.36401 4 10.0143V13.9857C3.99999 14.6359 3.99999 15.1604 4.03469 15.5852C4.07042 16.0225 4.14591 16.4066 4.32698 16.7619C4.6146 17.3264 5.07354 17.7854 5.63803 18.073C5.9934 18.2541 6.37752 18.3296 6.81483 18.3653C7.23955 18.4 7.76404 18.4 8.4143 18.4H15.5857C16.236 18.4 16.7605 18.4 17.1852 18.3653C17.6225 18.3296 18.0066 18.2541 18.362 18.073C18.9265 17.7854 19.3854 17.3264 19.673 16.7619C19.8541 16.4066 19.9296 16.0225 19.9653 15.5852C20 15.1604 20 14.6359 20 13.9857V10.0143C20 9.36401 20 8.83953 19.9653 8.4148C19.931 7.99473 19.86 7.62375 19.6939 7.28017L13.8997 12.0209C12.7946 12.9251 11.2054 12.9251 10.1003 12.0209L4.30606 7.28017Z"/><path d="M18.9609 6.3295C18.7792 6.17262 18.5783 6.0372 18.362 5.92696C18.0066 5.74588 17.6225 5.6704 17.1852 5.63467C16.7605 5.59997 16.236 5.59997 15.5857 5.59998H8.41432C7.76406 5.59997 7.23955 5.59997 6.81483 5.63467C6.37752 5.6704 5.9934 5.74588 5.63803 5.92696C5.42166 6.0372 5.2208 6.17262 5.03915 6.3295L10.8602 11.0922C11.5232 11.6347 12.4768 11.6347 13.1398 11.0922L18.9609 6.3295Z"/></svg>
+      </a>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="showTab('links', this)">Links</button>
+      <button class="tab-btn" onclick="showTab('shop', this)">Shop</button>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- LINKS TAB -->
+    <div id="tab-links" class="links-list">
+      <a class="link-item" href="https://amazon-kdp.fr/funnel/kdp-master-key-liste/kdp-master-key" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/b99d9b97-605b-4894-ba6d-58c8b9a7b71b_white-Photoroom-copie-3.jpeg?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">KDP MASTER KEY</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/funnel/la-boite-%c3%a0-prompts/la-boite-a-prompts/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/17ee9adb-347c-46b4-8e29-f621aef26b45_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">📦 La Boite à Prompts</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/100-idees-de-livres-a-creer-avec-chatgpt/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/0e9e2f6d-cd39-4142-8f3c-16a4736a7811_ebooks-idees.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">📚 100 idées d'ebook rentables</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/funnel/niche-hunter-free/niche-hunter-free/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/3e32b89f-c185-44ac-a0fc-e65034eeea42_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">NICHE HUNTER</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/funnel/mes-outils-indispensables/la-boite-a-outils/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/498c15f5-3c55-4dd5-8f7a-cb3d4d16f9d1_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">🛠️ La Boîte à Outils</span>
+      </a>
+      <a class="link-item" href="https://keywordsniper.kdphile.com/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/30f749a4-a314-4abb-9c77-6c72835cdc61_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">KEYWORD SNIPER</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/funnel/47-titres-debook-irresistibles/47-titres-debook-irresistibles/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">47 titres d'ebook irrésistibles</span>
+      </a>
+      <a class="link-item" href="https://amazon-kdp.fr/checklist-seo/" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/56a31fe6-77db-4da2-8422-74a57fde1068_Design-sans-titre-64.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">📃 Checklist SEO Amazon</span>
+      </a>
+      <a class="link-item" href="https://formation.amazon-kdp.fr/checkout/communaute" target="_blank">
+        <img class="link-thumb" src="https://ugc.production.linktr.ee/0d1f93a6-6827-4e51-8133-ac02cef8328a_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+        <span class="link-label">👥 Rejoindre la Communauté</span>
+      </a>
+    </div>
+
+    <!-- SHOP TAB -->
+    <div id="tab-shop" class="shop-grid" style="display:none;">
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/gpt-rocket/gpt-rocket" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/0741636d-62b5-480f-8cad-6cd340011703_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="EBOOK EMPIRE">
+        <div class="product-chin">
+          <div class="product-title">EBOOK EMPIRE</div>
+          <div class="product-price">147 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/la-gpt-prompts-box/gpt-prompts-box" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/19301016-5661-4c55-aa05-f8569b9a318a_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="La GPT Prompts Box">
+        <div class="product-chin">
+          <div class="product-title">La GPT Prompts Box</div>
+          <div class="product-price">27 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/rocketbook-2/rocketbook" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/42cda071-04c5-4401-b8cb-3fb2bee8db97_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="RocketBook">
+        <div class="product-chin">
+          <div class="product-title">RocketBook</div>
+          <div class="product-price">29 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/ebook-factory-pro/ebook-factory-pro" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/a227939f-d731-4ff7-bb0a-2610f734c8ed_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="Ebook Factory PRO">
+        <div class="product-chin">
+          <div class="product-title">Ebook Factory PRO</div>
+          <div class="product-price">27 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/ebook-defender/ebook-defender" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/cef527d1-a18b-479f-a10f-8ae5a0e951aa_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="EBOOK DEFENDER">
+        <div class="product-chin">
+          <div class="product-title">EBOOK DEFENDER</div>
+          <div class="product-price">19 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://amazon-kdp.fr/funnel/kdp-review-2/kdp-review" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/01073032-ce6b-4e88-9881-866eb09de134_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="KDP REVIEWS">
+        <div class="product-chin">
+          <div class="product-title">KDP REVIEWS</div>
+          <div class="product-price">19 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://rocketbook.fr" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/8ffb12b1-9010-4767-947e-5b07cfd282d9_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="RocketBook">
+        <div class="product-chin">
+          <div class="product-title">RocketBook - Créez votre ebook en 12min</div>
+          <div class="product-price">67 €</div>
+        </div>
+      </a>
+      <a class="product-card" href="https://kdp-rocket.fr" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/8b7938d1-d39b-4c98-90c7-c368c3c93df9_IMG-9793.jpeg?io=true&size=thumbnail-grid-carousel-v1_1" alt="KDP ROCKET">
+        <div class="product-chin">
+          <div class="product-title">KDP ROCKET</div>
+          <div class="product-price">29 €</div>
+        </div>
+      </a>
+      <!-- Featured full-width -->
+      <a class="product-card featured" href="https://coverfactory.amazon-kdp.fr/presentation" target="_blank">
+        <img class="thumb" src="https://ugc.production.linktr.ee/fe0098f5-dc52-4025-a850-04c1fccc43c1_image.png?io=true&size=square-fit" alt="CoverFactory">
+        <div class="product-chin">
+          <div class="product-title">CoverFactory - Générateur de Couvertures d'Ebook Pro</div>
+          <div class="product-price">49 €</div>
+        </div>
+      </a>
+    </div>
+
+  </div><!-- /content -->
+
+  <div class="footer">
+    <span>Cookie Preferences</span>
+    <span>•</span>
+    <a href="https://linktr.ee/privacy" target="_blank">Privacy</a>
+    <span>•</span>
+    <span>Report</span>
+  </div>
+
+</div><!-- /card -->
+
+<script>
+  function showTab(tab, btn) {
+    document.getElementById('tab-links').style.display = tab === 'links' ? 'flex' : 'none';
+    document.getElementById('tab-shop').style.display  = tab === 'shop'  ? 'grid' : 'none';
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
