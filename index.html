@@ -238,6 +238,70 @@
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+ /* ---------- RESPONSIVE ---------- */
+
+/* Mobile */
+@media (max-width:600px){
+
+body{
+padding:10px;
+}
+
+.header{
+padding:26px 16px 14px;
+}
+
+.avatar{
+width:80px;
+height:80px;
+}
+
+.name{
+font-size:1.15rem;
+}
+
+.bio{
+font-size:0.85rem;
+}
+
+.content{
+padding:14px 12px 22px;
+}
+
+/* SHOP en 1 colonne */
+.shop-grid{
+grid-template-columns:1fr;
+}
+
+/* produits */
+.product-title{
+white-space:normal;
+}
+
+.link-label{
+font-size:0.85rem;
+}
+
+}
+
+/* Tablette */
+@media (min-width:601px) and (max-width:900px){
+
+.shop-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+/* Grand écran */
+@media (min-width:901px){
+
+.card{
+max-width:600px;
+}
+
+}
+ 
 </style>
 </head>
 <body>
