@@ -221,6 +221,30 @@
     padding: 0 12px;
   }
 
+  /* ── Category separator ── */
+  .category-sep {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 6px 0 2px;
+  }
+
+  .category-sep .cat-line {
+    flex: 1;
+    height: 1.5px;
+    background: #c8c2b8;
+    border-radius: 2px;
+  }
+
+  .category-sep .cat-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #888;
+    white-space: nowrap;
+  }
+
   /* Footer */
   .footer {
     text-align: center;
@@ -238,70 +262,27 @@
     text-decoration: underline;
     text-underline-offset: 2px;
   }
- /* ---------- RESPONSIVE ---------- */
 
-/* Mobile */
-@media (max-width:600px){
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:600px){
+    body { padding:10px; }
+    .header { padding:26px 16px 14px; }
+    .avatar { width:80px; height:80px; }
+    .name { font-size:1.15rem; }
+    .bio { font-size:0.85rem; }
+    .content { padding:14px 12px 22px; }
+    .shop-grid { grid-template-columns:1fr; }
+    .product-title { white-space:normal; }
+    .link-label { font-size:0.85rem; }
+  }
 
-body{
-padding:10px;
-}
+  @media (min-width:601px) and (max-width:900px){
+    .shop-grid { grid-template-columns:1fr 1fr; }
+  }
 
-.header{
-padding:26px 16px 14px;
-}
-
-.avatar{
-width:80px;
-height:80px;
-}
-
-.name{
-font-size:1.15rem;
-}
-
-.bio{
-font-size:0.85rem;
-}
-
-.content{
-padding:14px 12px 22px;
-}
-
-/* SHOP en 1 colonne */
-.shop-grid{
-grid-template-columns:1fr;
-}
-
-/* produits */
-.product-title{
-white-space:normal;
-}
-
-.link-label{
-font-size:0.85rem;
-}
-
-}
-
-/* Tablette */
-@media (min-width:601px) and (max-width:900px){
-
-.shop-grid{
-grid-template-columns:1fr 1fr;
-}
-
-}
-
-/* Grand écran */
-@media (min-width:901px){
-
-.card{
-max-width:600px;
-}
-
-}
- 
+  @media (min-width:901px){
+    .card { max-width:600px; }
+  }
 </style>
 </head>
 <body>
@@ -309,11 +290,9 @@ max-width:600px;
 
   <!-- Header -->
   <div class="header">
-    <img class="avatar"
-      src="pt.png"
-      alt="Lynette Zounmenou">
+    <img class="avatar" src="pt.png" alt="Lynette Zounmenou">
     <div class="name">Mme Lynette Zounmenou</div>
-    <div class="bio">Bienvenue sur ma page Santé Beauté & Bien-etre</div>
+    <div class="bio">Bienvenue sur ma page Santé Beauté & Bien-etre.</div>
 
     <div class="socials">
       <!-- TikTok -->
@@ -342,6 +321,14 @@ max-width:600px;
 
     <!-- LINKS TAB -->
     <div id="tab-links" class="links-list">
+
+      <!-- ── Ebook ── -->
+      <div class="category-sep">
+        <span class="cat-line"></span>
+        <span class="cat-label">Ebook</span>
+        <span class="cat-line"></span>
+      </div>
+
       <a class="link-item" href="https://amazon-kdp.fr/funnel/kdp-master-key-liste/kdp-master-key" target="_blank">
         <img class="link-thumb" src="https://ugc.production.linktr.ee/b99d9b97-605b-4894-ba6d-58c8b9a7b71b_white-Photoroom-copie-3.jpeg?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">KDP MASTER KEY</span>
@@ -354,6 +341,14 @@ max-width:600px;
         <img class="link-thumb" src="https://ugc.production.linktr.ee/0e9e2f6d-cd39-4142-8f3c-16a4736a7811_ebooks-idees.png?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">📚 100 idées d'ebook rentables</span>
       </a>
+
+      <!-- ── Coaching ── -->
+      <div class="category-sep">
+        <span class="cat-line"></span>
+        <span class="cat-label">Coaching</span>
+        <span class="cat-line"></span>
+      </div>
+
       <a class="link-item" href="https://amazon-kdp.fr/funnel/niche-hunter-free/niche-hunter-free/" target="_blank">
         <img class="link-thumb" src="https://ugc.production.linktr.ee/3e32b89f-c185-44ac-a0fc-e65034eeea42_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">NICHE HUNTER</span>
@@ -366,6 +361,14 @@ max-width:600px;
         <img class="link-thumb" src="https://ugc.production.linktr.ee/30f749a4-a314-4abb-9c77-6c72835cdc61_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">KEYWORD SNIPER</span>
       </a>
+
+      <!-- ── Conférences ── -->
+      <div class="category-sep">
+        <span class="cat-line"></span>
+        <span class="cat-label">Conférences</span>
+        <span class="cat-line"></span>
+      </div>
+
       <a class="link-item" href="https://amazon-kdp.fr/funnel/47-titres-debook-irresistibles/47-titres-debook-irresistibles/" target="_blank">
         <img class="link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">47 titres d'ebook irrésistibles</span>
@@ -378,6 +381,7 @@ max-width:600px;
         <img class="link-thumb" src="https://ugc.production.linktr.ee/0d1f93a6-6827-4e51-8133-ac02cef8328a_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
         <span class="link-label">👥 Rejoindre la Communauté</span>
       </a>
+
     </div>
 
     <!-- SHOP TAB -->
@@ -438,7 +442,6 @@ max-width:600px;
           <div class="product-price">29 €</div>
         </div>
       </a>
-      <!-- Featured full-width -->
       <a class="product-card featured" href="https://coverfactory.amazon-kdp.fr/presentation" target="_blank">
         <img class="thumb" src="https://ugc.production.linktr.ee/fe0098f5-dc52-4025-a850-04c1fccc43c1_image.png?io=true&size=square-fit" alt="CoverFactory">
         <div class="product-chin">
