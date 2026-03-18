@@ -268,6 +268,7 @@
     background: var(--link-row-bg);
     border-bottom: 1px solid var(--divider);
     transition: background .2s, padding-left .2s;
+    cursor: pointer;
   }
   .cat-link:last-child { border-bottom: none; }
   .cat-link:hover { background: var(--link-row-h); padding-left: 22px; }
@@ -283,11 +284,10 @@
   .cat-link:hover .cat-link-arrow { opacity:1; transform:none; }
 
   /* ══════════════════════════════
-     SHOP — nouveau design
+     SHOP
   ══════════════════════════════ */
   .shop-wrap { display:flex; flex-direction:column; gap:20px; }
 
-  /* Section header */
   .shop-section-head {
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 12px;
@@ -296,12 +296,8 @@
     width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
-  .shop-section-icon.digital {
-    background: linear-gradient(135deg, #1a3a5c, #2a6496);
-  }
-  .shop-section-icon.physical {
-    background: linear-gradient(135deg, #3a2a1a, #8a5e30);
-  }
+  .shop-section-icon.digital { background: linear-gradient(135deg, #1a3a5c, #2a6496); }
+  .shop-section-icon.physical { background: linear-gradient(135deg, #3a2a1a, #8a5e30); }
   .shop-section-icon svg { width: 18px; height: 18px; }
 
   .shop-section-info { flex:1; }
@@ -310,98 +306,42 @@
     font-size: 1.05rem; font-weight: 600; color: var(--text);
     line-height: 1.2;
   }
-  .shop-section-sub {
-    font-size: .72rem; color: var(--text-muted);
-    margin-top: 2px; font-weight: 400;
-  }
+  .shop-section-sub { font-size: .72rem; color: var(--text-muted); margin-top: 2px; font-weight: 400; }
 
-  /* Horizontal scroll carousel */
   .shop-carousel {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px;
+    scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .shop-carousel::-webkit-scrollbar { display: none; }
 
   .shop-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    flex-shrink: 0;
-    width: 150px;
-    scroll-snap-align: start;
-    transition: border-color .25s, transform .2s, box-shadow .2s;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    overflow: hidden; text-decoration: none; color: inherit; flex-shrink: 0; width: 150px;
+    scroll-snap-align: start; transition: border-color .25s, transform .2s, box-shadow .2s;
     position: relative;
   }
-  .shop-card:hover {
-    border-color: var(--border-h);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 30px var(--shadow);
-  }
-  .shop-card img {
-    width: 100%; aspect-ratio: 1; object-fit: cover;
-    display: block; background: var(--surface2);
-    transition: transform .4s;
-  }
+  .shop-card:hover { border-color: var(--border-h); transform: translateY(-3px); box-shadow: 0 10px 30px var(--shadow); }
+  .shop-card img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; background: var(--surface2); transition: transform .4s; }
   .shop-card:hover img { transform: scale(1.05); }
-
   .shop-card-body { padding: 9px 10px 11px; }
-  .shop-card-title {
-    font-size: .77rem; font-weight: 500; color: var(--text);
-    line-height: 1.3;
-    display: -webkit-box; -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical; overflow: hidden;
-  }
-  .shop-card-price {
-    font-size: .75rem; color: var(--gold);
-    font-weight: 700; margin-top: 4px;
-  }
+  .shop-card-title { font-size: .77rem; font-weight: 500; color: var(--text); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .shop-card-price { font-size: .75rem; color: var(--gold); font-weight: 700; margin-top: 4px; }
+  .shop-card-tag { position: absolute; top: 8px; left: 8px; background: var(--shop-tag-bg); border: 1px solid var(--border-h); color: var(--shop-tag-text); font-size: .62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 3px 7px; border-radius: 6px; backdrop-filter: blur(4px); }
 
-  /* Tag overlay */
-  .shop-card-tag {
-    position: absolute; top: 8px; left: 8px;
-    background: var(--shop-tag-bg);
-    border: 1px solid var(--border-h);
-    color: var(--shop-tag-text);
-    font-size: .62rem; font-weight: 700; letter-spacing: .06em;
-    text-transform: uppercase; padding: 3px 7px; border-radius: 6px;
-    backdrop-filter: blur(4px);
-  }
-
-  /* CTA bouton */
   .shop-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 14px;
-    padding: 13px 24px;
-    background: linear-gradient(135deg, var(--gold-dim), var(--gold));
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .82rem; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase;
-    border-radius: 50px;
-    text-decoration: none;
-    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 14px; padding: 13px 24px;
+    background: linear-gradient(135deg, var(--gold-dim), var(--gold)); color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: .82rem; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase; border-radius: 50px;
+    text-decoration: none; border: none; cursor: pointer;
     transition: opacity .2s, transform .15s, box-shadow .2s;
-    box-shadow: 0 4px 18px rgba(160,120,48,.35);
-    width: 100%;
+    box-shadow: 0 4px 18px rgba(160,120,48,.35); width: 100%;
   }
   .shop-cta:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 8px 24px rgba(160,120,48,.45); }
   .shop-cta svg { width:16px; height:16px; flex-shrink:0; }
 
-  .shop-section-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-h), transparent);
-  }
+  .shop-section-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-h), transparent); }
 
   /* ── Footer ── */
   .footer {
@@ -410,11 +350,141 @@
     border-top: 1px solid var(--divider);
     font-size: .72rem; color: var(--text-muted); gap: 5px;
   }
-  .footer a {
-    color: var(--gold); text-decoration: none; font-weight: 600;
-    letter-spacing: .02em; transition: opacity .2s;
-  }
+  .footer a { color: var(--gold); text-decoration: none; font-weight: 600; letter-spacing: .02em; transition: opacity .2s; }
   .footer a:hover { opacity:.8; }
+
+  /* ══════════════════════════════
+     MODAL EBOOK POPUP
+  ══════════════════════════════ */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .3s ease;
+  }
+  .modal-overlay.open {
+    opacity: 1; pointer-events: all;
+  }
+
+  .modal-box {
+    background: #111;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 36px 28px 28px;
+    max-width: 400px; width: 100%;
+    position: relative;
+    transform: translateY(20px) scale(.96);
+    transition: transform .35s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 30px 80px rgba(0,0,0,.8);
+    text-align: center;
+  }
+  .modal-overlay.open .modal-box {
+    transform: none;
+  }
+
+  .modal-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,.1); border: none; cursor: pointer;
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; transition: background .2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,.18); }
+
+  .modal-emoji { font-size: 2.6rem; margin-bottom: 14px; display: block; }
+
+  .modal-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.3rem; font-weight: 700; color: #fff;
+    line-height: 1.3; margin-bottom: 8px;
+  }
+  .modal-title span { color: #e53e3e; }
+
+  .modal-subtitle {
+    font-size: .83rem; color: rgba(255,255,255,.6);
+    line-height: 1.6; margin-bottom: 22px;
+  }
+  .modal-subtitle strong { color: #fff; }
+
+  .modal-ebook-name {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(201,169,110,.12); border: 1px solid rgba(201,169,110,.3);
+    color: var(--gold-light, #e8cc9a); border-radius: 8px;
+    font-size: .75rem; font-weight: 600; letter-spacing: .05em;
+    padding: 6px 12px; margin-bottom: 18px;
+  }
+
+  .modal-field {
+    position: relative; margin-bottom: 12px;
+  }
+  .modal-field input {
+    width: 100%; padding: 14px 16px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px; color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: .88rem;
+    outline: none; transition: border-color .2s, background .2s;
+  }
+  .modal-field input::placeholder { color: rgba(255,255,255,.35); }
+  .modal-field input:focus {
+    border-color: rgba(201,169,110,.5);
+    background: rgba(255,255,255,.1);
+  }
+
+  .modal-submit {
+    width: 100%; padding: 15px 24px; margin-top: 4px;
+    background: #e53e3e; color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: .88rem; font-weight: 700;
+    letter-spacing: .04em; border: none; border-radius: 12px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    box-shadow: 0 4px 20px rgba(229,62,62,.4);
+  }
+  .modal-submit:hover { background: #c53030; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(229,62,62,.5); }
+  .modal-submit:disabled { background: #666; cursor: not-allowed; transform: none; box-shadow: none; }
+  .modal-submit svg { width: 16px; height: 16px; }
+
+  .modal-footer-note {
+    font-size: .72rem; color: rgba(255,255,255,.35);
+    margin-top: 14px;
+  }
+
+  /* Success state */
+  .modal-success {
+    display: none; flex-direction: column; align-items: center; gap: 12px;
+    padding: 20px 0;
+  }
+  .modal-success.show { display: flex; }
+  .modal-form-content.hidden { display: none; }
+
+  .success-icon {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 8px 24px rgba(34,197,94,.35);
+    animation: popIn .4s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes popIn { from{transform:scale(0)} to{transform:scale(1)} }
+
+  .success-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.15rem; font-weight: 700; color: #fff;
+  }
+  .success-msg {
+    font-size: .82rem; color: rgba(255,255,255,.6);
+    line-height: 1.6; text-align: center;
+  }
+
+  /* Loading spinner */
+  .spinner {
+    width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.3);
+    border-top-color: #fff; border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
 
   /* ── Responsive ── */
   @media(max-width:480px){
@@ -425,10 +495,58 @@
     .content { padding:10px 13px 22px; }
     .tab-nav { width:248px; }
     .shop-card { width:136px; }
+    .modal-box { padding: 30px 20px 24px; }
+    .modal-title { font-size: 1.1rem; }
   }
 </style>
 </head>
 <body>
+
+<!-- ══════════ MODAL EBOOK ══════════ -->
+<div class="modal-overlay" id="ebookModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Fermer">✕</button>
+
+    <!-- Contenu formulaire -->
+    <div class="modal-form-content" id="modalFormContent">
+      <span class="modal-emoji">⏳</span>
+      <h2 class="modal-title" id="modalTitle">Attends, ne pars pas<br><span>les mains vides.</span></h2>
+
+      <div class="modal-ebook-name" id="modalEbookBadge">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span id="modalEbookNameText">Ebook gratuit</span>
+      </div>
+
+      <p class="modal-subtitle">
+        Reçois <strong>le guide gratuit</strong> directement dans ta boîte mail — en quelques secondes.
+      </p>
+
+      <div class="modal-field">
+        <input type="text" id="modalPrenom" placeholder="Ton prénom" autocomplete="given-name" required>
+      </div>
+      <div class="modal-field">
+        <input type="email" id="modalEmail" placeholder="ton@email.com" autocomplete="email" required>
+      </div>
+
+      <button class="modal-submit" id="modalSubmitBtn" onclick="submitEbookForm()">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" stroke="#fff" stroke-width="1.5" fill="none"/></svg>
+        Recevoir le guide gratuit
+      </button>
+
+      <p class="modal-footer-note">Pas de spam · Désabonnement en 1 clic</p>
+    </div>
+
+    <!-- État succès -->
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✓</div>
+      <div class="success-title" id="successTitle">C'est parti ! 🎉</div>
+      <p class="success-msg" id="successMsg">Vérifie ta boîte mail — ton ebook t'a été envoyé.<br>Pense à vérifier les spams si tu ne le vois pas.</p>
+    </div>
+
+  </div>
+</div>
+<!-- ═══════════════════════════════════ -->
+
 <div class="card">
   <div class="card-line"></div>
 
@@ -441,22 +559,17 @@
     <div class="divider"></div>
     <div class="tagline">Santé · Beauté · Bien-être</div>
 
-    <!-- Socials: Facebook, WhatsApp, TikTok, Mail -->
     <div class="socials">
-      <!-- Facebook -->
       <a href="https://www.facebook.com/NettyyZoum" target="_blank" title="Facebook">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
-      <!-- WhatsApp -->
       <a href="https://wa.me/" target="_blank" title="WhatsApp">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.24-1.44l-.37-.22-3.88.98.99-3.77-.24-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.93 9.93 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.46c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.64-.93-2.24-.24-.59-.49-.5-.68-.51h-.58c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.21 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.71.22 1.35.19 1.86.11.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
       </a>
-      <!-- TikTok -->
       <a href="https://www.tiktok.com/@user9298819554178" target="_blank" title="TikTok">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.9453 8.68918V15.6727C15.9453 19.1598 13.1048 22.0004 9.6177 22.0004C8.27369 22.0004 7.01685 21.5717 5.99251 20.8525C4.35796 19.7047 3.29004 17.8085 3.29004 15.6727C3.29004 12.1783 6.12333 9.34505 9.6104 9.34505C9.90101 9.34505 10.1843 9.36685 10.4676 9.40318V12.9121H10.4386C10.3151 12.8758 10.1843 12.8394 10.0536 12.8177H9.9954C9.86466 12.8032 9.74114 12.7813 9.60309 12.7813C8.00491 12.7813 6.70448 14.0817 6.70448 15.6799C6.70448 17.2782 8.00491 18.5786 9.60309 18.5786C11.2014 18.5786 12.5018 17.2782 12.5018 15.6799V2.00037H15.938C15.938 2.29822 15.9671 2.58881 16.0179 2.87213C16.2649 4.1798 17.035 5.30584 18.1175 6.01053C18.873 6.50452 19.7593 6.78785 20.7182 6.78785V10.2241C18.9416 10.2241 17.288 9.65222 15.9453 8.68918Z"/></svg>
       </a>
-      <!-- Mail -->
-      <a href="mailto:zoumcosmo@gmail.com " title="Email">
+      <a href="mailto:zoumcosmo@gmail.com" title="Email">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.30606 7.28017C4.14002 7.62375 4.06901 7.99473 4.03469 8.4148C3.99999 8.83953 3.99999 9.36401 4 10.0143V13.9857C3.99999 14.6359 3.99999 15.1604 4.03469 15.5852C4.07042 16.0225 4.14591 16.4066 4.32698 16.7619C4.6146 17.3264 5.07354 17.7854 5.63803 18.073C5.9934 18.2541 6.37752 18.3296 6.81483 18.3653C7.23955 18.4 7.76404 18.4 8.4143 18.4H15.5857C16.236 18.4 16.7605 18.4 17.1852 18.3653C17.6225 18.3296 18.0066 18.2541 18.362 18.073C18.9265 17.7854 19.3854 17.3264 19.673 16.7619C19.8541 16.4066 19.9296 16.0225 19.9653 15.5852C20 15.1604 20 14.6359 20 13.9857V10.0143C20 9.36401 20 8.83953 19.9653 8.4148C19.931 7.99473 19.86 7.62375 19.6939 7.28017L13.8997 12.0209C12.7946 12.9251 11.2054 12.9251 10.1003 12.0209L4.30606 7.28017Z"/><path d="M18.9609 6.3295C18.7792 6.17262 18.5783 6.0372 18.362 5.92696C18.0066 5.74588 17.6225 5.6704 17.1852 5.63467C16.7605 5.59997 16.236 5.59997 15.5857 5.59998H8.41432C7.76406 5.59997 7.23955 5.59997 6.81483 5.63467C6.37752 5.6704 5.9934 5.74588 5.63803 5.92696C5.42166 6.0372 5.2208 6.17262 5.03915 6.3295L10.8602 11.0922C11.5232 11.6347 12.4768 11.6347 13.1398 11.0922L18.9609 6.3295Z"/></svg>
       </a>
     </div>
@@ -506,7 +619,7 @@
     <!-- ══ CONTENUS ══ -->
     <div id="tab-contenus" class="contenus-wrap" style="display:none">
 
-      <!-- Ebook -->
+      <!-- Ebook gratuit -->
       <div class="cat-block" style="animation-delay:.04s">
         <div class="cat-head">
           <div class="cat-icon">
@@ -516,16 +629,17 @@
           <span class="cat-count">2</span>
         </div>
         <div class="cat-links">
-          <a class="cat-link" href="https://amazon-kdp.fr/funnel/kdp-master-key-liste/kdp-master-key" target="_blank">
+          <!-- ← data-ebook-id identifie l'ebook dans Apps Script -->
+          <div class="cat-link" onclick="openModal('soins-de-pieds', 'Soins de pieds')">
             <img class="cat-link-thumb" src="img/sp.png" alt="">
             <span class="cat-link-label">Soins de pieds</span>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-          <a class="cat-link" href="https://amazon-kdp.fr/funnel/la-boite-%c3%a0-prompts/la-boite-a-prompts/" target="_blank">
+          </div>
+          <div class="cat-link" onclick="openModal('conte-enfance', 'Conte pour enfance')">
             <img class="cat-link-thumb" src="img/oo.png" alt="">
             <span class="cat-link-label">Conte pour enfance</span>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
+          </div>
         </div>
       </div>
 
@@ -570,7 +684,6 @@
     <!-- ══ SHOP ══ -->
     <div id="tab-shop" class="shop-wrap" style="display:none">
 
-      <!-- Ressources Digitales -->
       <div style="animation: fadeUp .4s .04s both">
         <div class="shop-section-head">
           <div class="shop-section-icon digital">
@@ -587,20 +700,15 @@
             <img src="img/45.png" alt="">
             <div class="shop-card-body"><div class="shop-card-title">Les 5 étapes pour ouvrir une garderie rentable</div><div class="shop-card-price">10 $</div></div>
           </a>
-        </div> 
+        </div>
         <a class="shop-cta" href="https://amazon-kdp.fr" target="_blank">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-          Voir plus... 
+          Voir plus...
         </a>
       </div>
-            
-      
-
-     
 
       <div class="shop-section-divider"></div>
 
-      <!-- Éditions Physiques -->
       <div style="animation: fadeUp .4s .12s both">
         <div class="shop-section-head">
           <div class="shop-section-icon physical">
@@ -644,6 +752,15 @@
 </div>
 
 <script>
+  /* ────────────────────────────────
+     ⚙️  CONFIGURATION — À MODIFIER
+  ──────────────────────────────── */
+  const APPS_SCRIPT_URL = 'COLLE_ICI_TON_URL_APPS_SCRIPT'; 
+  // Ex: 'https://script.google.com/macros/s/AKfycb.../exec'
+
+  /* ────────────────────────────────
+     TABS
+  ──────────────────────────────── */
   function showTab(tab, btn) {
     const map = { profil:'flex', contenus:'flex', shop:'flex' };
     Object.keys(map).forEach(t => {
@@ -651,14 +768,114 @@
     });
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const panel = document.getElementById('tab-'+tab);
-    panel.querySelectorAll('.product-card,.profil-card,.stat-box,.cat-block').forEach((el,i)=>{
+    panel.querySelectorAll('.profil-card,.stat-box,.cat-block').forEach((el,i)=>{
       el.style.animation='none';
       void el.offsetHeight;
       el.style.animation=`fadeUp .42s ${i*.08}s both`;
     });
   }
+
+  /* ────────────────────────────────
+     MODAL
+  ──────────────────────────────── */
+  let currentEbookId = '';
+
+  function openModal(ebookId, ebookName) {
+    currentEbookId = ebookId;
+    // Reset état
+    document.getElementById('modalFormContent').classList.remove('hidden');
+    document.getElementById('modalSuccess').classList.remove('show');
+    document.getElementById('modalPrenom').value = '';
+    document.getElementById('modalEmail').value = '';
+    document.getElementById('modalEbookNameText').textContent = ebookName;
+    resetBtn();
+    // Affiche overlay
+    document.getElementById('ebookModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(()=> document.getElementById('modalPrenom').focus(), 350);
+  }
+
+  function closeModal() {
+    document.getElementById('ebookModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Fermer en cliquant à l'extérieur
+  document.getElementById('ebookModal').addEventListener('click', function(e){
+    if(e.target === this) closeModal();
+  });
+
+  // Fermer avec Echap
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  /* ────────────────────────────────
+     SOUMISSION
+  ──────────────────────────────── */
+  async function submitEbookForm() {
+    const prenom = document.getElementById('modalPrenom').value.trim();
+    const email  = document.getElementById('modalEmail').value.trim();
+
+    if (!prenom) { shake('modalPrenom'); return; }
+    if (!isValidEmail(email)) { shake('modalEmail'); return; }
+
+    setLoading(true);
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prenom, email, ebook: currentEbookId })
+      });
+      // no-cors = on ne peut pas lire la réponse, on suppose le succès
+      showSuccess(prenom);
+    } catch (err) {
+      console.error(err);
+      alert('Une erreur est survenue. Réessaie dans quelques instants.');
+      setLoading(false);
+    }
+  }
+
+  function showSuccess(prenom) {
+    document.getElementById('modalFormContent').classList.add('hidden');
+    const s = document.getElementById('modalSuccess');
+    document.getElementById('successTitle').textContent = `Merci ${prenom} ! 🎉`;
+    s.classList.add('show');
+  }
+
+  function setLoading(on) {
+    const btn = document.getElementById('modalSubmitBtn');
+    btn.disabled = on;
+    btn.innerHTML = on
+      ? '<div class="spinner"></div> Envoi en cours...'
+      : '<svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" stroke="#fff" stroke-width="1.5" fill="none"/></svg> Recevoir le guide gratuit';
+  }
+
+  function resetBtn() { setLoading(false); }
+
+  function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
+  function shake(id) {
+    const el = document.getElementById(id);
+    el.style.animation = 'none';
+    void el.offsetHeight;
+    el.style.animation = 'shakeField .4s ease';
+    el.focus();
+  }
 </script>
+
+<style>
+@keyframes shakeField {
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-8px)}
+  40%{transform:translateX(8px)}
+  60%{transform:translateX(-5px)}
+  80%{transform:translateX(5px)}
+}
+</style>
+
 </body>
 </html>
