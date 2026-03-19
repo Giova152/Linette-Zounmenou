@@ -126,13 +126,13 @@
 </style>
 </head>
 <body>
- 
+
 <!-- ══ SYSTEME.IO — lien déclencheur caché ══ -->
 <!-- Systeme.io chargé dynamiquement au clic -->
- 
+
 <div class="card">
   <div class="card-line"></div>
- 
+
   <div class="header">
     <div class="avatar-wrap">
       <img class="avatar" src="img/pt.png" alt="Lynette Zoumenou">
@@ -140,7 +140,7 @@
     <div class="name">Mme <em>Lynette</em> Zoumenou</div>
     <div class="divider"></div>
     <div class="tagline">Santé · Beauté · Bien-être</div>
- 
+
     <div class="socials">
       <a href="https://www.facebook.com/NettyyZoum" target="_blank" title="Facebook">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -155,16 +155,16 @@
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.30606 7.28017C4.14002 7.62375 4.06901 7.99473 4.03469 8.4148C3.99999 8.83953 3.99999 9.36401 4 10.0143V13.9857C3.99999 14.6359 3.99999 15.1604 4.03469 15.5852C4.07042 16.0225 4.14591 16.4066 4.32698 16.7619C4.6146 17.3264 5.07354 17.7854 5.63803 18.073C5.9934 18.2541 6.37752 18.3296 6.81483 18.3653C7.23955 18.4 7.76404 18.4 8.4143 18.4H15.5857C16.236 18.4 16.7605 18.4 17.1852 18.3653C17.6225 18.3296 18.0066 18.2541 18.362 18.073C18.9265 17.7854 19.3854 17.3264 19.673 16.7619C19.8541 16.4066 19.9296 16.0225 19.9653 15.5852C20 15.1604 20 14.6359 20 13.9857V10.0143C20 9.36401 20 8.83953 19.9653 8.4148C19.931 7.99473 19.86 7.62375 19.6939 7.28017L13.8997 12.0209C12.7946 12.9251 11.2054 12.9251 10.1003 12.0209L4.30606 7.28017Z"/><path d="M18.9609 6.3295C18.7792 6.17262 18.5783 6.0372 18.362 5.92696C18.0066 5.74588 17.6225 5.6704 17.1852 5.63467C16.7605 5.59997 16.236 5.59997 15.5857 5.59998H8.41432C7.76406 5.59997 7.23955 5.59997 6.81483 5.63467C6.37752 5.6704 5.9934 5.74588 5.63803 5.92696C5.42166 6.0372 5.2208 6.17262 5.03915 6.3295L10.8602 11.0922C11.5232 11.6347 12.4768 11.6347 13.1398 11.0922L18.9609 6.3295Z"/></svg>
       </a>
     </div>
- 
+
     <div class="tab-nav">
       <button class="tab-btn active" onclick="showTab('profil',this)">Profil</button>
       <button class="tab-btn" onclick="showTab('contenus',this)">Contenus</button>
       <button class="tab-btn" onclick="showTab('shop',this)">Shop</button>
     </div>
   </div>
- 
+
   <div class="content">
- 
+
     <!-- ══ PROFIL ══ -->
     <div id="tab-profil" class="profil-wrap">
       <div class="profil-stats">
@@ -194,10 +194,10 @@
         </div>
       </div>
     </div>
- 
+
     <!-- ══ CONTENUS ══ -->
     <div id="tab-contenus" class="contenus-wrap" style="display:none">
- 
+
       <!-- Ebooks gratuits — clique = popup Systeme.io -->
       <div class="cat-block" style="animation-delay:.04s">
         <div class="cat-head">
@@ -208,24 +208,24 @@
           <span class="cat-count">2</span>
         </div>
         <div class="cat-links">
- 
+
           <!-- SOINS DE PIEDS → popup Systeme.io -->
-          <div class="cat-link" onclick="openSystemePopup('23257437','391188275683fbef4393ce74b3a6fd52f580a053')">
+          <div class="cat-link" onclick="document.getElementById('trigger-soins').click()">
             <img class="cat-link-thumb" src="img/sp.png" alt="">
             <span class="cat-link-label">Soins de pieds</span>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </div>
- 
+
           <!-- CONTE POUR ENFANT → popup Systeme.io -->
-          <div class="cat-link" onclick="openSystemePopup('23260243','39125526e51d2acc45f44ff3a54ce6f47343cacc')">
+          <div class="cat-link" onclick="document.getElementById('trigger-conte').click()">
             <img class="cat-link-thumb" src="img/oo.png" alt="">
             <span class="cat-link-label">Conte pour enfant</span>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </div>
- 
+
         </div>
       </div>
- 
+
       <!-- Coaching -->
       <div class="cat-block" style="animation-delay:.1s">
         <div class="cat-head">
@@ -243,7 +243,7 @@
           </a>
         </div>
       </div>
- 
+
       <!-- Programmes -->
       <div class="cat-block" style="animation-delay:.16s">
         <div class="cat-head">
@@ -261,12 +261,12 @@
           </a>
         </div>
       </div>
- 
+
     </div>
- 
+
     <!-- ══ SHOP ══ -->
     <div id="tab-shop" class="shop-wrap" style="display:none">
- 
+
       <div style="animation:fadeUp .4s .04s both">
         <div class="shop-section-head">
           <div class="shop-section-icon digital">
@@ -289,9 +289,9 @@
           Voir plus...
         </a>
       </div>
- 
+
       <div class="shop-section-divider"></div>
- 
+
       <div style="animation:fadeUp .4s .12s both">
         <div class="shop-section-head">
           <div class="shop-section-icon physical">
@@ -322,45 +322,19 @@
           visitez la boutique
         </a>
       </div>
- 
+
     </div>
- 
+
   </div>
- 
+
   <div class="footer">
     <span>Réalisé par</span>
     <a href="/cdn-cgi/l/email-protection#f69b9f9299919f998097b6919b979f9ad895999b">Giovanny Gandonou</a>
   </div>
- 
+
 </div>
- 
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function openSystemePopup(popupId, scriptHash) {
-    var scriptId = 'form-script-tag-' + popupId;
-    if (!document.getElementById(scriptId)) {
-      // Injecter le lien déclencheur
-      var a = document.createElement('a');
-      a.href = '#';
-      a.className = 'systeme-show-popup-' + popupId;
-      a.id = 'trigger-' + popupId;
-      a.style.display = 'none';
-      a.innerText = 'popup';
-      document.body.appendChild(a);
-      // Charger le script Systeme.io
-      var s = document.createElement('script');
-      s.id = scriptId;
-      s.src = 'https://zoumcosmo.systeme.io/public/remote/page/' + scriptHash + '.js';
-      s.onload = function() {
-        setTimeout(function() {
-          document.getElementById('trigger-' + popupId).click();
-        }, 300);
-      };
-      document.body.appendChild(s);
-    } else {
-      document.getElementById('trigger-' + popupId).click();
-    }
-  }
- 
   function showTab(tab, btn) {
     ['profil','contenus','shop'].forEach(t => {
       document.getElementById('tab-'+t).style.display = t===tab ? 'flex' : 'none';
