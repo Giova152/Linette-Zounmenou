@@ -569,7 +569,7 @@
       <a href="https://www.tiktok.com/@user9298819554178" target="_blank" title="TikTok">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.9453 8.68918V15.6727C15.9453 19.1598 13.1048 22.0004 9.6177 22.0004C8.27369 22.0004 7.01685 21.5717 5.99251 20.8525C4.35796 19.7047 3.29004 17.8085 3.29004 15.6727C3.29004 12.1783 6.12333 9.34505 9.6104 9.34505C9.90101 9.34505 10.1843 9.36685 10.4676 9.40318V12.9121H10.4386C10.3151 12.8758 10.1843 12.8394 10.0536 12.8177H9.9954C9.86466 12.8032 9.74114 12.7813 9.60309 12.7813C8.00491 12.7813 6.70448 14.0817 6.70448 15.6799C6.70448 17.2782 8.00491 18.5786 9.60309 18.5786C11.2014 18.5786 12.5018 17.2782 12.5018 15.6799V2.00037H15.938C15.938 2.29822 15.9671 2.58881 16.0179 2.87213C16.2649 4.1798 17.035 5.30584 18.1175 6.01053C18.873 6.50452 19.7593 6.78785 20.7182 6.78785V10.2241C18.9416 10.2241 17.288 9.65222 15.9453 8.68918Z"/></svg>
       </a>
-      <a href="mailto:zoumcosmo@gmail.com" title="Email">
+      <a href="/cdn-cgi/l/email-protection#255f4a5048464a56484a654248444c490b464a48" title="Email">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.30606 7.28017C4.14002 7.62375 4.06901 7.99473 4.03469 8.4148C3.99999 8.83953 3.99999 9.36401 4 10.0143V13.9857C3.99999 14.6359 3.99999 15.1604 4.03469 15.5852C4.07042 16.0225 4.14591 16.4066 4.32698 16.7619C4.6146 17.3264 5.07354 17.7854 5.63803 18.073C5.9934 18.2541 6.37752 18.3296 6.81483 18.3653C7.23955 18.4 7.76404 18.4 8.4143 18.4H15.5857C16.236 18.4 16.7605 18.4 17.1852 18.3653C17.6225 18.3296 18.0066 18.2541 18.362 18.073C18.9265 17.7854 19.3854 17.3264 19.673 16.7619C19.8541 16.4066 19.9296 16.0225 19.9653 15.5852C20 15.1604 20 14.6359 20 13.9857V10.0143C20 9.36401 20 8.83953 19.9653 8.4148C19.931 7.99473 19.86 7.62375 19.6939 7.28017L13.8997 12.0209C12.7946 12.9251 11.2054 12.9251 10.1003 12.0209L4.30606 7.28017Z"/><path d="M18.9609 6.3295C18.7792 6.17262 18.5783 6.0372 18.362 5.92696C18.0066 5.74588 17.6225 5.6704 17.1852 5.63467C16.7605 5.59997 16.236 5.59997 15.5857 5.59998H8.41432C7.76406 5.59997 7.23955 5.59997 6.81483 5.63467C6.37752 5.6704 5.9934 5.74588 5.63803 5.92696C5.42166 6.0372 5.2208 6.17262 5.03915 6.3295L10.8602 11.0922C11.5232 11.6347 12.4768 11.6347 13.1398 11.0922L18.9609 6.3295Z"/></svg>
       </a>
     </div>
@@ -746,16 +746,16 @@
 
   <div class="footer">
     <span>Réalisé par</span>
-    <a href="mailto:midogiova@gmail.com">Giovanny Gandonou</a>
+    <a href="/cdn-cgi/l/email-protection#0c616568636b65637a6d4c6b616d6560226f6361">Giovanny Gandonou</a>
   </div>
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ────────────────────────────────
      ⚙️  CONFIGURATION — À MODIFIER
   ──────────────────────────────── */
-  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxisHTNMnGT_eWkXEYwt2IFJwl193jy3uY6sPhUFEwf7KJcOCK3ffJMcKr4kzfSMtFc/exec'; 
+  const APPS_SCRIPT_URL = 'COLLE_ICI_TON_URL_APPS_SCRIPT'; 
   // Ex: 'https://script.google.com/macros/s/AKfycb.../exec'
 
   /* ────────────────────────────────
@@ -824,13 +824,17 @@
     setLoading(true);
 
     try {
+      // URLSearchParams est compatible no-cors (pas de preflight bloquant)
+      const params = new URLSearchParams();
+      params.append('prenom', prenom);
+      params.append('email', email);
+      params.append('ebook', currentEbookId);
+
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prenom, email, ebook: currentEbookId })
+        body: params
       });
-      // no-cors = on ne peut pas lire la réponse, on suppose le succès
       showSuccess(prenom);
     } catch (err) {
       console.error(err);
@@ -869,13 +873,4 @@
 
 <style>
 @keyframes shakeField {
-  0%,100%{transform:translateX(0)}
-  20%{transform:translateX(-8px)}
-  40%{transform:translateX(8px)}
-  60%{transform:translateX(-5px)}
-  80%{transform:translateX(5px)}
-}
-</style>
-
-</body>
-</html>
+  0%,
