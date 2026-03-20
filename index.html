@@ -152,6 +152,9 @@
       <button class="tab-btn active" onclick="showTab('profil',this)">Profil</button>
       <button class="tab-btn" onclick="showTab('contenus',this)">Contenus</button>
       <button class="tab-btn" onclick="showTab('shop',this)">Shop</button>
+      <button class="tab-btn active" type="button" data-tab="profil" onclick="showTab('profil',this)">Profil</button>
+      <button class="tab-btn" type="button" data-tab="contenus" onclick="showTab('contenus',this)">Contenus</button>
+      <button class="tab-btn" type="button" data-tab="shop" onclick="showTab('shop',this)">Shop</button>
     </div>
   </div>
 
@@ -233,7 +236,7 @@
             <span class="cat-link-label">Coaching personnalisé</span>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-@@ -299,74 +299,60 @@
+@@ -299,74 +299,88 @@
           </a>
           <a class="shop-card" href="lien" target="_blank">
             <img src="https://ugc.production.linktr.ee/8ffb12b1-9010-4767-947e-5b07cfd282d9_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="">
@@ -269,9 +272,22 @@
   function showTab(tab, btn) {
     ['profil','contenus','shop'].forEach(function(t) {
       document.getElementById('tab-'+t).style.display = t===tab ? 'flex' : 'none';
+    ['profil', 'contenus', 'shop'].forEach(function(t) {
+      var section = document.getElementById('tab-' + t);
+      if (section) {
+        section.style.display = t === tab ? 'flex' : 'none';
+      }
     });
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+
+    if (btn) {
+      btn.classList.add('active');
+    }
   }
 
   /* ── Popups Systeme.io ── */
@@ -279,6 +295,11 @@
     soins: { id:'23257437', hash:'391188275683fbef4393ce74b3a6fd52f580a053' },
     conte: { id:'23260243', hash:'39125526e51d2acc45f44ff3a54ce6f47343cacc' }
   };
+  document.querySelectorAll('.tab-btn[data-tab]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showTab(btn.dataset.tab, btn);
+    });
+  });
 
   /* ── Popups ── */
   function lancerPopup(nom) {
@@ -296,13 +317,6 @@
       a.className = 'systeme-show-popup-' + p.id;
       a.style.cssText = 'position:fixed;width:0;height:0;opacity:0;pointer-events:none;';
       document.body.appendChild(a);
-    document.getElementById('popup-'+nom).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function fermerPopup(nom) {
-    document.getElementById('popup-'+nom).classList.remove('open');
-    document.body.style.overflow = '';
-  }
 
       // Charger le script, puis cliquer
       var s = document.createElement('script');
@@ -313,12 +327,32 @@
         }, 500);
       };
       document.body.appendChild(s);
+    var popup = document.getElementById('popup-' + nom);
+
+    if (!popup) {
+      return;
+    }
+
+    popup.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function fermerPopup(nom) {
+    var popup = document.getElementById('popup-' + nom);
+
+    if (!popup) {
+      return;
+    }
+
+    popup.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('popup-overlay')) {
       e.target.classList.remove('open');
       document.body.style.overflow = '';
     }
-  }
   });
 </script>
 
