@@ -118,6 +118,7 @@
   .shop-card { background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:150px;scroll-snap-align:start;transition:border-color .25s,transform .2s,box-shadow .2s;position:relative; }
   .shop-card:hover { border-color:var(--border-h);transform:translateY(-3px);box-shadow:0 10px 30px var(--shadow); }
   .shop-card img { width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--surface2);transition:transform .4s; }
+  .shop-card.img-error { display:none; }
   .shop-card:hover img { transform:scale(1.05); }
   .shop-card-body { padding:9px 10px 11px; }
   .shop-card-title { font-size:.77rem;font-weight:500;color:var(--text);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden; }
@@ -140,7 +141,11 @@
     .shop-card{width:136px;}
   }
 
-  .ebook-carousel-wrap { padding:12px 14px 14px; }
+  .ebook-carousel-wrap { padding:12px 14px 14px;overflow:hidden;position:relative; }
+  .ebook-carousel-wrap::after { content:'';position:absolute;top:0;right:0;width:40px;height:100%;background:linear-gradient(to right,transparent,var(--surface));pointer-events:none;border-radius:0 14px 14px 0; }
+  .ebook-carousel-wrap .shop-carousel { flex-wrap:nowrap; }
+  .ebook-carousel-wrap .shop-card { width:120px;flex-shrink:0; }
+  .ebook-carousel-wrap .shop-card img { aspect-ratio:3/4; }
   .free-tag { background:rgba(80,180,100,.18) !important;border-color:rgba(80,180,100,.4) !important;color:#7ee8a2 !important; }
   .free-price { color:#7ee8a2 !important; }
 
@@ -200,7 +205,7 @@
       <a href="https://www.tiktok.com/@user9298819554178" target="_blank" title="TikTok">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M15.9453 8.68918V15.6727C15.9453 19.1598 13.1048 22.0004 9.6177 22.0004C8.27369 22.0004 7.01685 21.5717 5.99251 20.8525C4.35796 19.7047 3.29004 17.8085 3.29004 15.6727C3.29004 12.1783 6.12333 9.34505 9.6104 9.34505C9.90101 9.34505 10.1843 9.36685 10.4676 9.40318V12.9121H10.4386C10.3151 12.8758 10.1843 12.8394 10.0536 12.8177H9.9954C9.86466 12.8032 9.74114 12.7813 9.60309 12.7813C8.00491 12.7813 6.70448 14.0817 6.70448 15.6799C6.70448 17.2782 8.00491 18.5786 9.60309 18.5786C11.2014 18.5786 12.5018 17.2782 12.5018 15.6799V2.00037H15.938C15.938 2.29822 15.9671 2.58881 16.0179 2.87213C16.2649 4.1798 17.035 5.30584 18.1175 6.01053C18.873 6.50452 19.7593 6.78785 20.7182 6.78785V10.2241C18.9416 10.2241 17.288 9.65222 15.9453 8.68918Z"/></svg>
       </a>
-      <a href="mailto:zoumcosmo@gmail.com" title="Email">
+      <a href="/cdn-cgi/l/email-protection#52283d273f313d213f3d12353f333b3e7c313d3f" title="Email">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4.30606 7.28017C4.14002 7.62375 4.06901 7.99473 4.03469 8.4148C3.99999 8.83953 3.99999 9.36401 4 10.0143V13.9857C3.99999 14.6359 3.99999 15.1604 4.03469 15.5852C4.07042 16.0225 4.14591 16.4066 4.32698 16.7619C4.6146 17.3264 5.07354 17.7854 5.63803 18.073C5.9934 18.2541 6.37752 18.3296 6.81483 18.3653C7.23955 18.4 7.76404 18.4 8.4143 18.4H15.5857C16.236 18.4 16.7605 18.4 17.1852 18.3653C17.6225 18.3296 18.0066 18.2541 18.362 18.073C18.9265 17.7854 19.3854 17.3264 19.673 16.7619C19.8541 16.4066 19.9296 16.0225 19.9653 15.5852C20 15.1604 20 14.6359 20 13.9857V10.0143C20 9.36401 20 8.83953 19.9653 8.4148C19.931 7.99473 19.86 7.62375 19.6939 7.28017L13.8997 12.0209C12.7946 12.9251 11.2054 12.9251 10.1003 12.0209L4.30606 7.28017Z"/><path d="M18.9609 6.3295C18.7792 6.17262 18.5783 6.0372 18.362 5.92696C18.0066 5.74588 17.6225 5.6704 17.1852 5.63467C16.7605 5.59997 16.236 5.59997 15.5857 5.59998H8.41432C7.76406 5.59997 7.23955 5.59997 6.81483 5.63467C6.37752 5.6704 5.9934 5.74588 5.63803 5.92696C5.42166 6.0372 5.2208 6.17262 5.03915 6.3295L10.8602 11.0922C11.5232 11.6347 12.4768 11.6347 13.1398 11.0922L18.9609 6.3295Z"/></svg>
       </a>
     </div>
@@ -259,20 +264,19 @@
             </svg>
           </div>
           <span class="cat-head-label">Nos e-books</span>
-          <span class="cat-count">3</span>
+          <span class="cat-count">12</span>
         </div>
 
         <!-- Sous-catégorie : Ebook gratuit -->
         <div class="sub-cat-head">
           <span class="sub-cat-dot free"></span>
           <span class="sub-cat-label">Ebook gratuit</span>
-          <span class="sub-cat-count">2</span>
+          <span class="sub-cat-count">7</span>
         </div>
         <div class="ebook-carousel-wrap">
           <div class="shop-carousel">
 
             <div class="shop-card systeme-show-popup-23257437" style="cursor:pointer">
-              <span class="shop-card-tag free-tag">Gratuit</span>
               <img src="img/sp.png" alt="Soins de pieds">
               <div class="shop-card-body">
                 <div class="shop-card-title">Soins de pieds</div>
@@ -281,10 +285,49 @@
             </div>
 
             <div class="shop-card systeme-show-popup-23260243" style="cursor:pointer">
-              <span class="shop-card-tag free-tag">Gratuit</span>
               <img src="img/oo.png" alt="Conte pour enfant">
               <div class="shop-card-body">
                 <div class="shop-card-title">Conte pour enfant</div>
+                <div class="shop-card-price free-price">Gratuit</div>
+              </div>
+            </div>
+
+            <div class="shop-card" style="cursor:pointer">
+              <img src="img/sp.png" alt="Ebook 3">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook gratuit 3</div>
+                <div class="shop-card-price free-price">Gratuit</div>
+              </div>
+            </div>
+
+            <div class="shop-card" style="cursor:pointer">
+              <img src="img/oo.png" alt="Ebook 4">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook gratuit 4</div>
+                <div class="shop-card-price free-price">Gratuit</div>
+              </div>
+            </div>
+
+            <div class="shop-card" style="cursor:pointer">
+              <img src="img/sp.png" alt="Ebook 5">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook gratuit 5</div>
+                <div class="shop-card-price free-price">Gratuit</div>
+              </div>
+            </div>
+
+            <div class="shop-card" style="cursor:pointer">
+              <img src="img/oo.png" alt="Ebook 6">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook gratuit 6</div>
+                <div class="shop-card-price free-price">Gratuit</div>
+              </div>
+            </div>
+
+            <div class="shop-card" style="cursor:pointer">
+              <img src="img/sp.png" alt="Ebook 7">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook gratuit 7</div>
                 <div class="shop-card-price free-price">Gratuit</div>
               </div>
             </div>
@@ -299,7 +342,7 @@
         <div class="sub-cat-head">
           <span class="sub-cat-dot paid"></span>
           <span class="sub-cat-label">Ebook payant</span>
-          <span class="sub-cat-count">1</span>
+          <span class="sub-cat-count">5</span>
         </div>
         <div class="ebook-carousel-wrap">
           <div class="shop-carousel">
@@ -307,26 +350,40 @@
             <a class="shop-card" href="https://www.investirencpe.com/checkout" target="_blank">
               <img src="img/45.png" alt="Les 5 étapes pour ouvrir une garderie rentable">
               <div class="shop-card-body">
-                <div class="shop-card-title">Produit 1</div>
-                <div class="shop-card-price">5 $</div>
-              </div>
-
-              <div class="shop-carousel">
-
-            <a class="shop-card" href="https://www.investirencpe.com/checkout" target="_blank">
-              <img src="img/45.png" alt="Les 5 étapes pour ouvrir une garderie rentable">
-              <div class="shop-card-body">
-                <div class="shop-card-title">Produit 2</div>
+                <div class="shop-card-title">Les 5 étapes pour ouvrir une garderie rentable</div>
                 <div class="shop-card-price">10 $</div>
               </div>
+            </a>
 
-              <div class="shop-carousel">
-
-            <a class="shop-card" href="https://www.investirencpe.com/checkout" target="_blank">
-              <img src="img/45.png" alt="Les 5 étapes pour ouvrir une garderie rentable">
+            <a class="shop-card" href="lien" target="_blank">
+              <img src="img/45.png" alt="Ebook payant 2">
               <div class="shop-card-body">
-                <div class="shop-card-title">Produit 3</div>
+                <div class="shop-card-title">Ebook payant 2</div>
                 <div class="shop-card-price">15 $</div>
+              </div>
+            </a>
+
+            <a class="shop-card" href="lien" target="_blank">
+              <img src="img/45.png" alt="Ebook payant 3">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook payant 3</div>
+                <div class="shop-card-price">20 $</div>
+              </div>
+            </a>
+
+            <a class="shop-card" href="lien" target="_blank">
+              <img src="img/45.png" alt="Ebook payant 4">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook payant 4</div>
+                <div class="shop-card-price">12 $</div>
+              </div>
+            </a>
+
+            <a class="shop-card" href="lien" target="_blank">
+              <img src="img/45.png" alt="Ebook payant 5">
+              <div class="shop-card-body">
+                <div class="shop-card-title">Ebook payant 5</div>
+                <div class="shop-card-price">8 $</div>
               </div>
             </a>
 
@@ -438,7 +495,7 @@
 
   <div class="footer">
     <span>Réalisé par</span>
-    <a href="mailto:midogiova@gmail.com">Giovanny Gandonou</a>
+    <a href="/cdn-cgi/l/email-protection#f79a9e9398909e988196b7909a969e9bd994989a">Giovanny Gandonou</a>
   </div>
 
 </div>
@@ -466,8 +523,13 @@
   </div>
 </div>
 
-<script>
-  /* ── Onglets ── */
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  /* ── Masquer les cartes avec image cassée ── */
+  document.querySelectorAll('.shop-card img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      img.closest('.shop-card').classList.add('img-error');
+    });
+  });
   function showTab(tab, btn) {
     ['profil','contenus','shop'].forEach(function(t) {
       var el = document.getElementById('tab-'+t);
@@ -494,8 +556,4 @@
   });
 </script>
 
-<script id="form-script-tag-23257437" src="https://zoumcosmo.systeme.io/public/remote/page/391188275683fbef4393ce74b3a6fd52f580a053.js"></script>
-<script id="form-script-tag-23260243" src="https://zoumcosmo.systeme.io/public/remote/page/39125526e51d2acc45f44ff3a54ce6f47343cacc.js"></script>
-
-</body>
-</html>
+<script id="form-script-tag-23257437" src="https://zoumcosmo.systeme.io/public/remote/page/391188275683fbef4393ce74b3
