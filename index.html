@@ -25,12 +25,10 @@ body{font-family:'Outfit',sans-serif;background:var(--ivory);color:var(--charcoa
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 60% 50% at 10% 5%,rgba(212,174,112,.13) 0%,transparent 55%),radial-gradient(ellipse 50% 60% at 92% 90%,rgba(184,145,77,.11) 0%,transparent 55%),radial-gradient(ellipse 40% 40% at 50% 50%,rgba(240,224,192,.07) 0%,transparent 60%);pointer-events:none;z-index:0}
 body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(184,145,77,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
 
-/* ── Card ── */
 .card{position:relative;z-index:1;background:var(--warm-white);width:100%;max-width:560px;border-radius:var(--radius-xl);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-lg),0 1px 0 rgba(255,255,255,.9) inset;animation:cardIn .6s cubic-bezier(.22,1,.36,1) both}
 @keyframes cardIn{from{opacity:0;transform:translateY(28px) scale(.97)}to{opacity:1;transform:none}}
 .card-accent{height:3px;background:linear-gradient(90deg,transparent 0%,var(--gold-dim) 20%,var(--gold) 50%,var(--gold-light) 70%,transparent 100%)}
 
-/* ── Header ── */
 .header{display:flex;flex-direction:column;align-items:center;padding:40px 24px 20px;gap:10px;position:relative}
 .header::before{content:'';position:absolute;top:78px;left:50%;transform:translateX(-50%);width:80%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-pale),transparent)}
 .avatar-ring{position:relative;display:inline-flex;margin-bottom:2px}
@@ -47,21 +45,18 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .tagline{font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--lighter);animation:fadeUp .5s .2s both}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-/* ── Socials ── */
 .socials{display:flex;gap:4px;animation:fadeUp .5s .24s both}
 .socials a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-sm);color:var(--lighter);text-decoration:none;background:var(--surface2);border:1px solid var(--border);transition:color var(--tr),background var(--tr),border-color var(--tr),transform var(--tr)}
 .socials a:hover{color:var(--gold);background:var(--gold-pale);border-color:var(--border-h);transform:translateY(-2px)}
 .socials svg{width:18px;height:18px}
 
-/* ── Tab nav ── */
 .tab-nav{display:flex;background:var(--cream);border:1px solid var(--border);border-radius:50px;padding:4px;width:272px;margin:8px auto 0;animation:fadeUp .5s .28s both;gap:2px}
 .tab-btn{flex:1;padding:9px 0;border:none;background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:background var(--tr),color var(--tr),box-shadow var(--tr)}
 .tab-btn.active{background:var(--charcoal);color:var(--gold-light);font-weight:700;box-shadow:0 2px 10px rgba(28,26,23,.22)}
 
-/* ── Content ── */
 .content{padding:12px 20px 28px}
 
-/* ══ PROFIL ══ */
+/* PROFIL */
 .profil-wrap{display:flex;flex-direction:column;gap:14px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 10px;text-align:center;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);animation:fadeUp .42s both;backdrop-filter:blur(8px)}
@@ -76,7 +71,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .badge{display:inline-flex;align-items:center;gap:5px;background:rgba(184,145,77,.08);border:1px solid var(--border);color:var(--gold-dim);font-size:.69rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:50px;transition:background var(--tr),border-color var(--tr)}
 .badge:hover{background:rgba(184,145,77,.15);border-color:var(--border-h)}
 
-/* ══ SERVICES ══ */
+/* SERVICES */
 .services-wrap{display:flex;flex-direction:column;gap:14px}
 .cat-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;animation:fadeUp .42s both;backdrop-filter:blur(8px);box-shadow:var(--shadow-sm)}
 .cat-head{display:flex;align-items:center;gap:12px;padding:14px 18px;background:linear-gradient(90deg,rgba(184,145,77,.07),transparent);border-bottom:1px solid var(--divider)}
@@ -95,7 +90,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .cat-link-arrow{width:14px;height:14px;color:var(--lighter);flex-shrink:0;opacity:0;transform:translateX(-4px);transition:opacity var(--tr),transform var(--tr),color var(--tr)}
 .cat-link:hover .cat-link-arrow{opacity:1;transform:none;color:var(--gold)}
 
-/* ══ SHOP ══ */
+/* SHOP */
 .shop-wrap{display:flex;flex-direction:column;gap:22px}
 .shop-section-head{display:flex;align-items:center;gap:12px;margin-bottom:13px}
 .shop-section-icon{width:38px;height:38px;border-radius:11px;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 12px rgba(0,0,0,.1)}
@@ -106,11 +101,9 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .shop-section-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);line-height:1.2}
 .shop-section-sub{font-size:.71rem;color:var(--lighter);margin-top:2px;font-weight:400}
 
-/* Carousel commun */
 .scroll-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scroll-row::-webkit-scrollbar{display:none}
 
-/* ── Ebook cards (ratio 3/4, plus petites) ── */
 .ebook-wrap{position:relative;overflow:hidden;padding:12px 14px 14px}
 .ebook-wrap::after{content:'';position:absolute;top:0;right:0;width:40px;height:100%;background:linear-gradient(to right,transparent,var(--warm-white));pointer-events:none}
 .ebook-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:200px;scroll-snap-align:start;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative;cursor:pointer}
@@ -122,19 +115,16 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .ebook-price{font-size:.68rem;font-weight:700;margin-top:3px}
 .ebook-price.free{color:#3aaa5c}
 .ebook-price.paid{color:var(--gold)}
-/* Badge flottant sur la carte */
 .ebook-tag{position:absolute;top:6px;left:6px;font-size:.57rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:5px;backdrop-filter:blur(4px)}
 .ebook-tag.free{background:rgba(58,170,92,.18);color:#2d8a4a;border:1px solid rgba(58,170,92,.3)}
 .ebook-tag.paid{background:rgba(184,145,77,.18);color:var(--gold-dim);border:1px solid rgba(184,145,77,.35)}
 
-/* Filtre gratuit / payant */
 .ebook-filters{display:flex;gap:6px;padding:10px 14px 0}
 .ebook-filter-btn{padding:5px 13px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background var(--tr),border-color var(--tr),color var(--tr)}
 .ebook-filter-btn.active-free{background:rgba(58,170,92,.1);border-color:rgba(58,170,92,.4);color:#2d8a4a}
 .ebook-filter-btn.active-paid{background:rgba(184,145,77,.12);border-color:var(--border-h);color:var(--gold-dim)}
 .ebook-filter-btn.active-all{background:var(--charcoal);border-color:var(--charcoal);color:var(--gold-light)}
 
-/* ── Shop cards physiques (ratio 1:1) ── */
 .shop-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:200px;scroll-snap-align:start;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative}
 .shop-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .shop-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--cream);transition:transform .4s}
@@ -145,18 +135,16 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .shop-card-price{font-size:.73rem;color:var(--gold);font-weight:700;margin-top:4px}
 .shop-card-tag{position:absolute;top:7px;left:7px;background:rgba(28,26,23,.75);color:var(--gold-light);font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:6px;backdrop-filter:blur(6px)}
 
-/* CTA bouton */
 .shop-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:13px;padding:13px 24px;background:var(--charcoal);color:var(--gold-light);font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);box-shadow:0 4px 16px rgba(28,26,23,.2);width:100%}
 .shop-cta:hover{background:#2e2b26;transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,26,23,.26)}
 .shop-cta svg{width:15px;height:15px;flex-shrink:0}
 .shop-section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-h),transparent)}
 
-/* ── Footer ── */
 .footer{display:flex;justify-content:center;align-items:center;padding:14px 0 10px;margin:0 20px;border-top:1px solid var(--divider);font-size:.7rem;color:var(--lighter);gap:5px}
 .footer a{color:var(--gold);text-decoration:none;font-weight:600;transition:opacity var(--tr)}
 .footer a:hover{opacity:.7}
 
-/* ══ POPUP ══ */
+/* POPUP */
 .popup-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(20,16,10,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
 .popup-overlay.open{display:flex}
 .popup-box{background:var(--warm-white);border-radius:var(--radius-lg);border:1px solid var(--border);padding:38px 28px 28px;max-width:400px;width:100%;position:relative;box-shadow:var(--shadow-lg);text-align:center;animation:popIn .32s cubic-bezier(.22,1,.36,1) both}
@@ -192,12 +180,11 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 <div class="card">
   <div class="card-accent"></div>
 
-  <!-- ══ HEADER ══ -->
   <div class="header">
     <div class="avatar-ring">
       <img class="avatar" src="img/pt.png" alt="Lynette Zoumenou">
     </div>
-    <div class="name">Mme Lynette Zoumenou</div>
+    <div class="name"> Mme Lynette Zoumenou </div>
     <div class="ornament">
       <div class="ornament-line"></div>
       <div class="ornament-diamond"></div>
@@ -206,6 +193,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     <div class="tagline">Santé · Beauté · Bien-être</div>
 
     <div class="socials">
+      <!-- Réseaux sociaux = target="_blank" conservé (apps externes) -->
       <a href="https://www.facebook.com/NettyyZoum" target="_blank" title="Facebook">
         <svg fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
       </a>
@@ -229,7 +217,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 
   <div class="content">
 
-    <!-- ══════════ PROFIL ══════════ -->
+    <!-- PROFIL -->
     <div id="tab-profil" class="profil-wrap">
       <div class="stats-grid">
         <div class="stat-box" style="animation-delay:.04s">
@@ -259,7 +247,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
       </div>
     </div>
 
-    <!-- ══════════ SERVICES (Coaching + Programmes) ══════════ -->
+    <!-- SERVICES -->
     <div id="tab-services" class="services-wrap" style="display:none">
 
       <!-- Coaching -->
@@ -275,7 +263,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
           <span class="cat-count">2</span>
         </div>
         <div class="cat-links">
-          <a class="cat-link" href="https://zoumcosmo.systeme.io/coaching" target="_blank">
+          <a class="cat-link" href="https://zoumcosmo.systeme.io/coaching">
             <img class="cat-link-thumb" src="img/azert.png" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Coaching personnalisé</div>
@@ -283,7 +271,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             </div>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-          <a class="cat-link" href="lien" target="_blank">
+          <a class="cat-link" href="lien">
             <img class="cat-link-thumb" src="img/azert.png" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Coaching de groupe</div>
@@ -308,7 +296,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
           <span class="cat-count">4</span>
         </div>
         <div class="cat-links">
-          <a class="cat-link" href="programme/programme1.html" target="_blank">
+          <a class="cat-link" href="programme/programme1.html">
             <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Reprendre sa place</div>
@@ -316,7 +304,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             </div>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-          <a class="cat-link" href="programme/programme2.html" target="_blank">
+          <a class="cat-link" href="programme/programme2.html">
             <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Femmes & Renaissance</div>
@@ -324,16 +312,15 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             </div>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-          <a class="cat-link" href="programme/programme3.html" target="_blank">
+          <a class="cat-link" href="programme/programme3.html">
             <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Oser entreprendre autrement</div>
-              <div class="cat-link-sub">Pour les femmes qui veulent créer, structurer ou développer leur activité avec confiance — à leur rythme.
-</div>
+              <div class="cat-link-sub">Pour les femmes qui veulent créer, structurer ou développer leur activité avec confiance — à leur rythme.</div>
             </div>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-          <a class="cat-link" href="programme/programme4.html" target="_blank">
+          <a class="cat-link" href="programme/programme4.html">
             <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
             <div class="cat-link-info">
               <div class="cat-link-label">Programme 4</div>
@@ -346,10 +333,9 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 
     </div>
 
-    <!-- ══════════ SHOP ══════════ -->
+    <!-- SHOP -->
     <div id="tab-shop" class="shop-wrap" style="display:none">
 
-      <!-- ── Produits digitaux (Ebooks intégrés) ── -->
       <div style="animation:fadeUp .4s .04s both">
         <div class="shop-section-head">
           <div class="shop-section-icon digital">
@@ -364,131 +350,78 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
           </div>
         </div>
 
-        <!-- Filtres Tous / Gratuit / Payant -->
         <div class="ebook-filters">
           <button class="ebook-filter-btn active-all" onclick="filterEbooks('all',this)">Tous</button>
           <button class="ebook-filter-btn" onclick="filterEbooks('free',this)">🟢 Gratuits</button>
           <button class="ebook-filter-btn" onclick="filterEbooks('paid',this)">🟡 Payants</button>
         </div>
 
-        <!-- Carousel unique (gratuits + payants, différenciés par badge) -->
         <div class="ebook-wrap">
           <div class="scroll-row" id="ebook-row">
-
-            <!-- Ordre interleaved : GRATUIT › PAYANT › GRATUIT › PAYANT … -->
-            <!-- 1 GRATUIT -->
             <div class="ebook-card systeme-show-popup-23257437" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/sp.png" alt="Soins de pieds">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Soins de pieds</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Soins de pieds</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 2 PAYANT -->
-            <a class="ebook-card" href="https://www.investirencpe.com/checkout" target="_blank" data-type="paid">
+            <a class="ebook-card" href="https://www.investirencpe.com/checkout" data-type="paid">
               <span class="ebook-tag paid">10 $</span>
               <img src="img/45.png" alt="Garderie rentable">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">5 étapes pour ouvrir une garderie rentable</div>
-                <div class="ebook-price paid">10 $</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">5 étapes pour ouvrir une garderie rentable</div><div class="ebook-price paid">10 $</div></div>
             </a>
-            <!-- 3 GRATUIT -->
             <div class="ebook-card systeme-show-popup-23260243" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/oo.png" alt="Conte pour enfant">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Conte pour enfant</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Conte pour enfant</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 4 PAYANT -->
-            <a class="ebook-card" href="lien" target="_blank" data-type="paid">
+            <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">15 $</span>
               <img src="img/45.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook payant 2</div>
-                <div class="ebook-price paid">15 $</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 2</div><div class="ebook-price paid">15 $</div></div>
             </a>
-            <!-- 5 GRATUIT -->
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/sp.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook gratuit 3</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 3</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 6 PAYANT -->
-            <a class="ebook-card" href="lien" target="_blank" data-type="paid">
+            <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">20 $</span>
               <img src="img/45.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook payant 3</div>
-                <div class="ebook-price paid">20 $</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 3</div><div class="ebook-price paid">20 $</div></div>
             </a>
-            <!-- 7 GRATUIT -->
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/oo.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook gratuit 4</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 4</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 8 PAYANT -->
-            <a class="ebook-card" href="lien" target="_blank" data-type="paid">
+            <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">12 $</span>
               <img src="img/45.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook payant 4</div>
-                <div class="ebook-price paid">12 $</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 4</div><div class="ebook-price paid">12 $</div></div>
             </a>
-            <!-- 9 GRATUIT -->
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/sp.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook gratuit 5</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 5</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 10 PAYANT -->
-            <a class="ebook-card" href="lien" target="_blank" data-type="paid">
+            <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">8 $</span>
               <img src="img/45.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook payant 5</div>
-                <div class="ebook-price paid">8 $</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 5</div><div class="ebook-price paid">8 $</div></div>
             </a>
-            <!-- 11 GRATUIT -->
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/oo.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook gratuit 6</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 6</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-            <!-- 12 GRATUIT -->
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
               <img src="img/sp.png" alt="">
-              <div class="ebook-card-body">
-                <div class="ebook-card-title">Ebook gratuit 7</div>
-                <div class="ebook-price free">Gratuit</div>
-              </div>
+              <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 7</div><div class="ebook-price free">Gratuit</div></div>
             </div>
-
           </div>
         </div>
 
-        <a class="shop-cta" href="https://zoumcosmo.systeme.io/ebook" target="_blank">
+        <a class="shop-cta" href="https://zoumcosmo.systeme.io/ebook">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           Voir tous les e-books
         </a>
@@ -496,7 +429,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 
       <div class="shop-section-divider"></div>
 
-      <!-- ── Produits physiques ── -->
       <div style="animation:fadeUp .4s .12s both">
         <div class="shop-section-head">
           <div class="shop-section-icon physical">
@@ -512,30 +444,21 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
           </div>
         </div>
         <div class="scroll-row">
-          <a class="shop-card" href="https://biocosmeceutiques.com/produit/savon_menthe-poivree/" target="_blank">
+          <a class="shop-card" href="https://biocosmeceutiques.com/produit/savon_menthe-poivree/">
             <span class="shop-card-tag">Nouveau</span>
             <img src="https://ugc.production.linktr.ee/42cda071-04c5-4401-b8cb-3fb2bee8db97_image.png?io=true&size=thumbnail-grid-carousel-v1_" alt="">
-            <div class="shop-card-body">
-              <div class="shop-card-title">Savon Menthe Poivrée</div>
-              <div class="shop-card-price">12 $</div>
-            </div>
+            <div class="shop-card-body"><div class="shop-card-title">Savon Menthe Poivrée</div><div class="shop-card-price">12 $</div></div>
           </a>
-          <a class="shop-card" href="lien" target="_blank">
+          <a class="shop-card" href="lien">
             <img src="https://ugc.production.linktr.ee/8ffb12b1-9010-4767-947e-5b07cfd282d9_image.png?io=true&size=thumbnail-grid-carousel-v1_1" alt="">
-            <div class="shop-card-body">
-              <div class="shop-card-title">Produit 2</div>
-              <div class="shop-card-price">40 $</div>
-            </div>
+            <div class="shop-card-body"><div class="shop-card-title">Produit 2</div><div class="shop-card-price">40 $</div></div>
           </a>
-          <a class="shop-card" href="lien" target="_blank">
+          <a class="shop-card" href="lien">
             <img src="https://ugc.production.linktr.ee/8b7938d1-d39b-4c98-90c7-c368c3c93df9_IMG-9793.jpeg?io=true&size=thumbnail-grid-carousel-v1_1" alt="">
-            <div class="shop-card-body">
-              <div class="shop-card-title">Produit 3</div>
-              <div class="shop-card-price">18 $</div>
-            </div>
+            <div class="shop-card-body"><div class="shop-card-title">Produit 3</div><div class="shop-card-price">18 $</div></div>
           </a>
         </div>
-        <a class="shop-cta" href="https://biocosmeceutiques.com/" target="_blank">
+        <a class="shop-cta" href="https://biocosmeceutiques.com/">
           <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           Visiter la boutique
         </a>
@@ -568,7 +491,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 </div>
 
 <script>
-  /* Image errors */
   document.querySelectorAll('.shop-card img, .ebook-card img').forEach(img => {
     img.addEventListener('error', () => {
       const card = img.closest('.shop-card,.ebook-card');
@@ -576,17 +498,14 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     });
   });
 
-  /* Init : toutes les ebook-cards visibles au chargement */
   document.querySelectorAll('#ebook-row .ebook-card').forEach(c => c.style.display = '');
 
-  /* Tabs */
   function showTab(tab, btn) {
     ['profil','services','shop'].forEach(t => {
       document.getElementById('tab-' + t).style.display = t === tab ? 'flex' : 'none';
     });
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    /* Quand on ouvre Shop, on remet Tous + scroll 0 */
     if (tab === 'shop') {
       document.querySelectorAll('#ebook-row .ebook-card').forEach(c => c.style.display = '');
       document.querySelectorAll('.ebook-filter-btn').forEach(b => b.classList.remove('active-all','active-free','active-paid'));
@@ -597,7 +516,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     }
   }
 
-  /* Filtre ebooks */
   function filterEbooks(type, btn) {
     document.querySelectorAll('#ebook-row .ebook-card').forEach(card => {
       card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
@@ -606,12 +524,10 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
       b.classList.remove('active-all','active-free','active-paid');
     });
     btn.classList.add(type === 'all' ? 'active-all' : type === 'free' ? 'active-free' : 'active-paid');
-    /* Scroll au début à chaque filtre */
     const row = document.getElementById('ebook-row');
     if (row) row.scrollLeft = 0;
   }
 
-  /* Popups */
   function lancerPopup(nom) {
     document.getElementById('popup-' + nom).classList.add('open');
     document.body.style.overflow = 'hidden';
