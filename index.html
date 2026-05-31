@@ -82,11 +82,9 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .cat-head:hover{background:linear-gradient(90deg,rgba(184,145,77,.12),transparent)}
 .cat-chevron{transition:transform .3s cubic-bezier(.4,0,.2,1),color var(--tr);color:var(--lighter);margin-left:10px;width:14px;height:14px;flex-shrink:0}
 .cat-block.active .cat-chevron{transform:rotate(180deg);color:var(--gold)}
-
 .cat-count{font-size:.68rem;font-weight:700;color:var(--gold-dim);background:rgba(184,145,77,.1);border:1px solid var(--border);border-radius:50px;padding:2px 9px}
 .cat-links{display:flex;flex-direction:column;max-height:0;overflow:hidden;transition:max-height .45s cubic-bezier(.4,0,.2,1),opacity .3s ease;opacity:0}
 .cat-block.active .cat-links{max-height:800px;opacity:1}
-
 .cat-link{display:flex;align-items:center;gap:13px;padding:13px 18px;text-decoration:none;color:var(--charcoal);border-bottom:1px solid var(--divider);transition:background var(--tr),padding-left var(--tr);cursor:pointer}
 .cat-link:last-child{border-bottom:none}
 .cat-link:hover{background:rgba(184,145,77,.06);padding-left:22px}
@@ -110,10 +108,8 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 
 .scroll-row{display:flex;gap:12px;overflow-x:auto;padding:10px 20px 18px;margin:0 -20px;scroll-snap-type:x mandatory;scroll-padding:0 20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scroll-row::-webkit-scrollbar{display:none}
-
 .shop-scroll-wrapper{position:relative;overflow:hidden}
 .shop-scroll-wrapper::after{content:'';position:absolute;top:0;right:0;width:50px;height:100%;background:linear-gradient(to right,transparent,var(--warm-white));pointer-events:none;z-index:2}
-
 .ebook-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:190px;scroll-snap-align:start;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative;cursor:pointer;box-shadow:var(--shadow-sm)}
 .ebook-card:hover{border-color:var(--border-h);transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .ebook-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--cream);transition:transform .4s}
@@ -480,7 +476,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             <div class="shop-section-sub">Les produits cosméceutiques</div>
           </div>
         </div>
-
         <div class="shop-scroll-wrapper">
           <div class="scroll-row">
             <a class="shop-card" href="https://biocosmeceutiques.com/produit/savon_menthe-poivree/">
@@ -560,7 +555,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     const block = header.parentElement;
     block.classList.toggle('active');
   }
-
   function filterEbooks(type, btn) {
     document.querySelectorAll('#ebook-row .ebook-card').forEach(card => {
       card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
