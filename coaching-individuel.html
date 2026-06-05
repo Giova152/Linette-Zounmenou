@@ -84,6 +84,21 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
   .hero-title{font-size:1.65rem}
   .sec-body{padding:14px 16px}
 }
+
+/* ── Popup Offres ── */
+.popup-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(20,16,10,.88);backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:20px}
+.popup-overlay.open{display:flex}
+.popup-box{background:var(--warm);border-radius:var(--rx);border:1px solid var(--border);padding:40px 24px 28px;max-width:420px;width:100%;position:relative;box-shadow:var(--sh-lg);text-align:center;animation:popIn .32s cubic-bezier(.22,1,.36,1) both}
+@keyframes popIn{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+.popup-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--cream);border:1px solid var(--border);cursor:pointer;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:background var(--tr)}
+.popup-close:hover{background:var(--gold-p)}
+.popup-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:20px}
+.offers-list{display:flex;flex-direction:column;gap:10px}
+.offer-item{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:var(--sf);border:1px solid var(--border);border-radius:var(--r);text-decoration:none;color:var(--dark);transition:all var(--tr);text-align:left}
+.offer-item:hover{border-color:var(--gold);background:var(--warm);transform:translateY(-2px);box-shadow:var(--sh-sm)}
+.offer-name{font-weight:600;font-size:0.9rem;letter-spacing:0.02em}
+.offer-price{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--gold)}
+
 </style>
 </head>
 <body>
@@ -109,10 +124,10 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
         <p>🌷 Tu traverses une période difficile ? Tu as vécu une séparation, une épreuve, un deuil professionnel ou un grand changement de vie et tu sens que tu n’es plus la même personne ? Cet accompagnement est là pour toi.</p>
       </div>
 
-      <a class="cta-main" href="https://wa.me/" target="_blank">
+      <button class="cta-main" onclick="openOfferPopup()">
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         Réserver ma séance
-      </a>
+      </button>
       <div class="cta-note">Échanges privés et confidentiels</div>
     </div>
   </div>
@@ -211,5 +226,48 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     <a href="mailto:midogiova@gmail.com">Giovanny Gandonou</a>
   </div>
 </div>
+
+<!-- Popup Offres -->
+<div class="popup-overlay" id="offer-popup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closeOfferPopup()">✕</button>
+    <div class="popup-title">Choisir mon forfait</div>
+    <div class="offers-list">
+      <a href="https://ton-lien-paiement-50.com" class="offer-item">
+        <span class="offer-name">Séance de Clarté</span>
+        <span class="offer-price">50 $</span>
+      </a>
+      <a href="https://ton-lien-paiement-100.com" class="offer-item">
+        <span class="offer-name">Parcours Renaissance</span>
+        <span class="offer-price">100 $</span>
+      </a>
+      <a href="https://ton-lien-paiement-150.com" class="offer-item">
+        <span class="offer-name">Transformation Complète</span>
+        <span class="offer-price">150 $</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openOfferPopup() {
+    document.getElementById('offer-popup').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOfferPopup() {
+    document.getElementById('offer-popup').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Fermer le popup au clic à l'extérieur de la boîte
+  window.addEventListener('click', function(e) {
+    const overlay = document.getElementById('offer-popup');
+    if (e.target === overlay) {
+      closeOfferPopup();
+    }
+  });
+</script>
+
 </body>
 </html>
