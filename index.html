@@ -13,9 +13,9 @@
   --charcoal:#1c1a17;--mid:#2e2b26;--muted:#6e6459;--lighter:#9e9387;
   --border:rgba(184,145,77,.18);--border-h:rgba(184,145,77,.42);
   --surface:rgba(255,255,255,.72);--surface2:rgba(255,255,255,.45);
-  --divider:rgba(184,145,77,.15);
-  --shadow-sm:0 2px 12px rgba(30,24,14,.07);
-  --shadow-md:0 8px 32px rgba(30,24,14,.10);
+  --divider:rgba(184,145,77,.1);
+  --shadow-sm:0 4px 20px rgba(30,24,14,.03);
+  --shadow-md:0 16px 40px rgba(30,24,14,.08);
   --shadow-lg:0 20px 60px rgba(30,24,14,.14);
   --radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;
   --tr:.22s cubic-bezier(.4,0,.2,1);
@@ -30,13 +30,12 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .card-accent{height:3px;background:linear-gradient(90deg,transparent 0%,var(--gold-dim) 20%,var(--gold) 50%,var(--gold-light) 70%,transparent 100%)}
 
 .header{display:flex;flex-direction:column;align-items:center;padding:40px 24px 20px;gap:10px;position:relative}
-.header::before{content:'';position:absolute;top:78px;left:50%;transform:translateX(-50%);width:80%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-pale),transparent)}
 .avatar-ring{position:relative;display:inline-flex;margin-bottom:2px}
-.avatar-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(var(--gold-dim),var(--gold-light),var(--gold),var(--gold-pale),var(--gold));animation:spinRing 8s linear infinite;z-index:0}
-.avatar-ring::after{content:'';position:absolute;inset:-1px;border-radius:50%;background:var(--warm-white);z-index:1}
+.avatar-ring::before{content:'';position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(from 0deg, transparent, var(--gold), transparent);animation:spinRing 15s linear infinite;z-index:0;opacity:0.4}
+.avatar-ring::after{content:'';position:absolute;inset:-1px;border-radius:50%;background:var(--warm-white);z-index:1;border: 1px solid var(--border)}
 @keyframes spinRing{to{transform:rotate(360deg)}}
 .avatar{position:relative;z-index:2;width:100px;height:100px;border-radius:50%;object-fit:cover;background:var(--cream)}
-.name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--charcoal);letter-spacing:.3px;text-align:center;animation:fadeUp .5s .12s both}
+.name{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--charcoal);letter-spacing:-0.02em;text-align:center;animation:fadeUp .5s .12s both}
 .name em{color:var(--gold);font-style:italic;font-weight:400}
 .ornament{display:flex;align-items:center;gap:10px;animation:fadeUp .5s .16s both}
 .ornament-line{width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
@@ -50,23 +49,22 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .socials a:hover{color:var(--gold);background:var(--gold-pale);border-color:var(--border-h);transform:translateY(-2px)}
 .socials svg{width:18px;height:18px}
 
-.tab-nav{display:flex;background:var(--cream);border:1px solid var(--border);border-radius:50px;padding:4px;width:272px;margin:8px auto 0;animation:fadeUp .5s .28s both;gap:2px}
+.tab-nav{display:flex;background:var(--cream);border:1px solid var(--border);border-radius:50px;padding:4px;max-width:280px;width:100%;margin:8px auto 0;animation:fadeUp .5s .28s both;gap:2px}
 .tab-btn{flex:1;padding:9px 0;border:none;background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:background var(--tr),color var(--tr),box-shadow var(--tr)}
 .tab-btn.active{background:var(--charcoal);color:var(--gold-light);font-weight:700;box-shadow:0 2px 10px rgba(28,26,23,.22)}
 
 .content{padding:12px 20px 28px}
 
-/* PROFIL */
 .profil-wrap{display:flex;flex-direction:column;gap:14px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:18px 10px;text-align:center;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);animation:fadeUp .42s both;backdrop-filter:blur(8px)}
 .stat-box:hover{border-color:var(--border-h);transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-num{font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:700;color:var(--gold);line-height:1}
 .stat-lbl{font-size:.65rem;color:var(--lighter);margin-top:5px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
 .profil-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:20px 22px;animation:fadeUp .42s both;backdrop-filter:blur(8px)}
 .profil-section-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--charcoal);letter-spacing:.02em;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .profil-section-title::before{content:'';display:block;width:3px;height:14px;background:var(--gold);border-radius:2px;flex-shrink:0}
-.profil-text{font-size:.875rem;color:var(--muted);line-height:1.7;font-weight:400}
+.profil-text{font-size:0.95rem;color:var(--muted);line-height:1.85;font-weight:300;letter-spacing:0.01em}
 .badge-row{display:flex;flex-wrap:wrap;gap:7px}
 .badge{display:inline-flex;align-items:center;gap:5px;background:rgba(184,145,77,.08);border:1px solid var(--border);color:var(--gold-dim);font-size:.69rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:50px;transition:background var(--tr),border-color var(--tr)}
 .badge:hover{background:rgba(184,145,77,.15);border-color:var(--border-h)}
@@ -103,44 +101,45 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
 .shop-section-icon.physical{background:linear-gradient(135deg,var(--gold-dim),var(--gold))}
 .shop-section-icon svg{width:18px;height:18px}
 .shop-section-info{flex:1}
-.shop-section-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);line-height:1.2}
+.shop-section-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--charcoal);line-height:1.2;letter-spacing:-0.01em}
 .shop-section-sub{font-size:.71rem;color:var(--lighter);margin-top:2px;font-weight:400}
 
 .scroll-row{display:flex;gap:12px;overflow-x:auto;padding:10px 20px 18px;margin:0 -20px;scroll-snap-type:x mandatory;scroll-padding:0 20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
 .scroll-row::-webkit-scrollbar{display:none}
 .shop-scroll-wrapper{position:relative;overflow:hidden}
-.shop-scroll-wrapper::after{content:'';position:absolute;top:0;right:0;width:50px;height:100%;background:linear-gradient(to right,transparent,var(--warm-white));pointer-events:none;z-index:2}
-.ebook-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:190px;scroll-snap-align:start;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative;cursor:pointer;box-shadow:var(--shadow-sm)}
-.ebook-card:hover{border-color:var(--border-h);transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.shop-scroll-wrapper::after{content:'';position:absolute;top:0;right:0;width:60px;height:100%;background:linear-gradient(to right,transparent,var(--warm-white));pointer-events:none;z-index:2}
+.ebook-card{background:var(--warm-white);border:1px solid rgba(184,145,77,0.12);border-radius:var(--radius-md);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:190px;scroll-snap-align:start;transition:all .4s cubic-bezier(.165, .84, .44, 1);position:relative;cursor:pointer;box-shadow:var(--shadow-sm)}
+.ebook-card:hover{border-color:var(--border-h);transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .ebook-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--cream);transition:transform .4s}
-.ebook-card:hover img{transform:scale(1.05)}
-.ebook-card-body{padding:7px 8px 9px}
-.ebook-card-title{font-size:.7rem;font-weight:500;color:var(--charcoal);line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ebook-price{font-size:.68rem;font-weight:700;margin-top:3px}
+.ebook-card:hover img{transform:scale(1.08)}
+.ebook-card-body{padding:10px 12px 12px}
+.ebook-card-title{font-size:.75rem;font-weight:600;color:var(--charcoal);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:4px}
+.ebook-price{font-family:'Outfit',sans-serif;font-size:0.9rem;font-weight:700;margin-top:3px}
 .ebook-price.free{color:#3aaa5c}
 .ebook-price.paid{color:var(--gold)}
-.ebook-tag{position:absolute;top:6px;left:6px;font-size:.57rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 6px;border-radius:5px;backdrop-filter:blur(4px)}
+.ebook-tag{position:absolute;top:8px;left:8px;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;backdrop-filter:blur(6px);z-index:3}
 .ebook-tag.free{background:rgba(58,170,92,.18);color:#2d8a4a;border:1px solid rgba(58,170,92,.3)}
 .ebook-tag.paid{background:rgba(184,145,77,.18);color:var(--gold-dim);border:1px solid rgba(184,145,77,.35)}
 
 .ebook-filters{display:flex;gap:6px;padding:10px 14px 0}
-.ebook-filter-btn{padding:5px 13px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.67rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;transition:background var(--tr),border-color var(--tr),color var(--tr)}
-.ebook-filter-btn.active-free{background:rgba(58,170,92,.1);border-color:rgba(58,170,92,.4);color:#2d8a4a}
-.ebook-filter-btn.active-paid{background:rgba(184,145,77,.12);border-color:var(--border-h);color:var(--gold-dim)}
-.ebook-filter-btn.active-all{background:var(--charcoal);border-color:var(--charcoal);color:var(--gold-light)}
+.ebook-filter-btn{padding:6px 14px;border-radius:50px;border:1px solid var(--border);background:var(--surface2);color:var(--muted);font-family:'Outfit',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:all var(--tr)}
+.ebook-filter-btn:hover{border-color:var(--border-h);background:var(--cream)}
+.ebook-filter-btn.active-free{background:rgba(58,170,92,.08);border-color:#3aaa5c;color:#2d8a4a}
+.ebook-filter-btn.active-paid{background:rgba(184,145,77,.08);border-color:var(--gold);color:var(--gold-dim)}
+.ebook-filter-btn.active-all{background:var(--charcoal);border-color:var(--charcoal);color:var(--gold-light);box-shadow: 0 4px 12px rgba(28,26,23,0.15)}
 
-.shop-card{background:var(--warm-white);border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:190px;scroll-snap-align:start;transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);position:relative;box-shadow:var(--shadow-sm)}
-.shop-card:hover{border-color:var(--border-h);transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.shop-card{background:var(--warm-white);border:1px solid rgba(184,145,77,0.12);border-radius:var(--radius-md);overflow:hidden;text-decoration:none;color:inherit;flex-shrink:0;width:190px;scroll-snap-align:start;transition:all .4s cubic-bezier(.165, .84, .44, 1);position:relative;box-shadow:var(--shadow-sm)}
+.shop-card:hover{border-color:var(--border-h);transform:translateY(-6px);box-shadow:var(--shadow-md)}
 .shop-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:var(--cream);transition:transform .4s}
-.shop-card:hover img{transform:scale(1.06)}
+.shop-card:hover img{transform:scale(1.08)}
 .shop-card.img-error{display:none}
-.shop-card-body{padding:9px 10px 11px}
-.shop-card-title{font-size:.75rem;font-weight:500;color:var(--charcoal);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.shop-card-price{font-size:.73rem;color:var(--gold);font-weight:700;margin-top:4px}
-.shop-card-tag{position:absolute;top:7px;left:7px;background:rgba(28,26,23,.75);color:var(--gold-light);font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 7px;border-radius:6px;backdrop-filter:blur(6px)}
+.shop-card-body{padding:12px 14px 14px}
+.shop-card-title{font-size:.8rem;font-weight:600;color:var(--charcoal);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.shop-card-price{font-family:'Outfit',sans-serif;font-size:1rem;color:var(--gold);font-weight:700;margin-top:6px}
+.shop-card-tag{position:absolute;top:10px;left:10px;background:rgba(28,26,23,.8);color:var(--gold-light);font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:4px;backdrop-filter:blur(8px);z-index:3}
 
-.shop-cta{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:13px;padding:13px 24px;background:var(--charcoal);color:var(--gold-light);font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:50px;text-decoration:none;border:none;cursor:pointer;transition:background var(--tr),transform var(--tr),box-shadow var(--tr);box-shadow:0 4px 16px rgba(28,26,23,.2);width:100%}
-.shop-cta:hover{background:#2e2b26;transform:translateY(-2px);box-shadow:0 8px 24px rgba(28,26,23,.26)}
+.shop-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;padding:16px 24px;background:var(--charcoal);color:var(--gold-light);font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border-radius:var(--radius-sm);text-decoration:none;border:1px solid var(--charcoal);cursor:pointer;transition:all var(--tr);box-shadow:0 8px 20px rgba(28,26,23,0.12);width:100%}
+.shop-cta:hover{background:var(--mid);transform:translateY(-2px);box-shadow:0 12px 28px rgba(28,26,23,0.18)}
 .shop-cta svg{width:15px;height:15px;flex-shrink:0}
 .shop-section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-h),transparent)}
 
@@ -173,7 +172,6 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
   .avatar{width:86px;height:86px}
   .name{font-size:1.44rem}
   .content{padding:10px 14px 24px}
-  .tab-nav{width:252px}
   .ebook-card{width:160px}
   .shop-card{width:170px}
 }
@@ -269,7 +267,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
         </div>
         <div class="cat-links">
           <a class="cat-link" href="coaching-individuel.html">
-            <img class="cat-link-thumb" src="img/coaching-individuel.png" alt="Coaching individuel">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=150&h=150" alt="Coaching individuel">
             <div class="cat-link-info">
               <div class="cat-link-label">Renaissance personnelle</div>
               <div class="cat-link-sub">Coaching individuel · Transformation</div>
@@ -277,7 +275,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
           <a class="cat-link" href="lien">
-            <img class="cat-link-thumb" src="img/coaching-groupe.png" alt="Coaching de groupe">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=150&h=150" alt="Coaching de groupe">
             <div class="cat-link-info">
               <div class="cat-link-label">Coaching de groupe</div>
               <div class="cat-link-sub">Sessions collectives · Communauté</div>
@@ -303,7 +301,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
         </div>
         <div class="cat-links">
           <a class="cat-link" href="programme/programme1.html">
-            <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=150&h=150" alt="Reprendre sa place">
             <div class="cat-link-info">
               <div class="cat-link-label">Reprendre sa place</div>
               <div class="cat-link-sub">Un espace doux et transformateur pour les femmes qui veulent se retrouver, se reconstruire et avancer autrement.</div>
@@ -311,7 +309,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
           <a class="cat-link" href="programme/programme2.html">
-            <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=150&h=150" alt="Femmes & Renaissance">
             <div class="cat-link-info">
               <div class="cat-link-label">Femmes & Renaissance</div>
               <div class="cat-link-sub">Une parenthèse de douceur pour les femmes qui veulent se reconnecter à elles-mêmes.</div>
@@ -319,7 +317,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
           <a class="cat-link" href="programme/programme3.html">
-            <img class="cat-link-thumb" src="https://ugc.production.linktr.ee/440f5382-504a-41ff-b443-1d616ece0555_image.png?io=true&size=thumbnail-stack_v1_0" alt="">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=150&h=150" alt="Oser entreprendre autrement">
             <div class="cat-link-info">
               <div class="cat-link-label">Oser entreprendre autrement</div>
               <div class="cat-link-sub">Pour les femmes qui veulent créer, structurer ou développer leur activité avec confiance — à leur rythme.</div>
@@ -354,7 +352,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
         </div>
         <div class="cat-links">
           <a class="cat-link" href="appel-decouverte.html">
-            <img class="cat-link-thumb" src="img/appel-video.png" alt="Appel découverte">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150&h=150" alt="Appel découverte">
             <div class="cat-link-info">
               <div class="cat-link-label">Appel découverte (30 min)</div>
               <div class="cat-link-sub">Gratuit · Valide tes besoins et trouve la bonne formule</div>
@@ -393,47 +391,47 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
           <div class="scroll-row" id="ebook-row">
             <div class="ebook-card systeme-show-popup-23257437" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
-              <img src="img/sp.png" alt="Soins de pieds">
+              <img src="https://images.unsplash.com/photo-1535136029863-4a3e36ab2dc8?auto=format&fit=crop&q=80&w=300&h=400" alt="Soins de pieds">
               <div class="ebook-card-body"><div class="ebook-card-title">Soins de pieds</div><div class="ebook-price free">Gratuit</div></div>
             </div>
             <a class="ebook-card" href="https://www.investirencpe.com/checkout" data-type="paid">
               <span class="ebook-tag paid">10 $</span>
-              <img src="img/45.png" alt="Garderie rentable">
+              <img src="https://images.unsplash.com/photo-1472162072142-d544e73e7fb7?auto=format&fit=crop&q=80&w=300&h=400" alt="Garderie rentable">
               <div class="ebook-card-body"><div class="ebook-card-title">5 étapes pour ouvrir une garderie rentable</div><div class="ebook-price paid">10 $</div></div>
             </a>
             <div class="ebook-card systeme-show-popup-23260243" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
-              <img src="img/oo.png" alt="Conte pour enfant">
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=300&h=400" alt="Conte pour enfant">
               <div class="ebook-card-body"><div class="ebook-card-title">Conte pour enfant</div><div class="ebook-price free">Gratuit</div></div>
             </div>
             <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">15 $</span>
-              <img src="img/45.png" alt="">
+              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 2</div><div class="ebook-price paid">15 $</div></div>
             </a>
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
-              <img src="img/sp.png" alt="">
+              <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 3</div><div class="ebook-price free">Gratuit</div></div>
             </div>
             <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">20 $</span>
-              <img src="img/45.png" alt="">
+              <img src="https://images.unsplash.com/photo-1589998059171-988d887df64e?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 3</div><div class="ebook-price paid">20 $</div></div>
             </a>
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
-              <img src="img/oo.png" alt="">
+              <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 4</div><div class="ebook-price free">Gratuit</div></div>
             </div>
             <a class="ebook-card" href="lien" data-type="paid">
               <span class="ebook-tag paid">12 $</span>
-              <img src="img/45.png" alt="">
+              <img src="https://images.unsplash.com/photo-1491843351663-8c436628b941?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook payant 4</div><div class="ebook-price paid">12 $</div></div>
             </a>
             <div class="ebook-card" data-type="free">
               <span class="ebook-tag free">Gratuit</span>
-              <img src="img/sp.png" alt="">
+              <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=300&h=400" alt="">
               <div class="ebook-card-body"><div class="ebook-card-title">Ebook gratuit 5</div><div class="ebook-price free">Gratuit</div></div>
             </div>
             <a class="ebook-card" href="lien" data-type="paid">
