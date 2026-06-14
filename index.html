@@ -175,6 +175,31 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
   .ebook-card{width:160px}
   .shop-card{width:170px}
 }
+
+/* Bouton Retour en haut */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  background: var(--charcoal);
+  color: var(--gold-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--tr);
+  border: 1px solid var(--border);
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-4px); background: var(--mid); box-shadow: var(--shadow-lg); color: var(--gold); }
+.back-to-top svg { width: 20px; height: 20px; }
 </style>
 </head>
 <body>
@@ -252,8 +277,35 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
     <!-- SERVICES -->
     <div id="tab-services" class="services-wrap" style="display:none">
 
+      <!-- RDV Gratuit -->
+      <div class="cat-block active" style="animation-delay:.04s">
+        <div class="cat-head" onclick="toggleAccordion(this)">
+          <div class="cat-icon pulse-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <span class="cat-head-label">Réserver un rdv gratuit</span>
+          <span class="cat-count">1</span>
+          <svg class="cat-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
+        </div>
+        <div class="cat-links">
+          <a class="cat-link" href="appel-decouverte.html">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150&h=150" alt="Appel découverte">
+            <div class="cat-link-info">
+              <div class="cat-link-label">Appel découverte (30 min)</div>
+              <div class="cat-link-sub">Gratuit · Confidentiel · Sans engagement</div>
+            </div>
+            <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
       <!-- Coaching -->
-      <div class="cat-block" style="animation-delay:.04s">
+      <div class="cat-block" style="animation-delay:.1s">
         <div class="cat-head" onclick="toggleAccordion(this)">
           <div class="cat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
@@ -286,7 +338,7 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
       </div>
 
       <!-- Programmes -->
-      <div class="cat-block" style="animation-delay:.1s">
+      <div class="cat-block" style="animation-delay:.16s">
         <div class="cat-head" onclick="toggleAccordion(this)">
           <div class="cat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
@@ -335,27 +387,25 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
         </div>
       </div>
 
-      <!-- RDV Gratuit -->
-      <div class="cat-block" style="animation-delay:.16s">
+      <!-- Formation -->
+      <div class="cat-block" style="animation-delay:.22s">
         <div class="cat-head" onclick="toggleAccordion(this)">
-          <div class="cat-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
+          <div class="cat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
             </svg>
           </div>
-          <span class="cat-head-label">Réserver un rdv gratuit</span>
+          <span class="cat-head-label">Formation</span>
           <span class="cat-count">1</span>
           <svg class="cat-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
         </div>
         <div class="cat-links">
-          <a class="cat-link" href="appel-decouverte.html">
-            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=150&h=150" alt="Appel découverte">
+          <a class="cat-link" href="lien">
+            <img class="cat-link-thumb" src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=150&h=150" alt="Formation">
             <div class="cat-link-info">
-              <div class="cat-link-label">Appel découverte (30 min)</div>
-              <div class="cat-link-sub">Gratuit · Valide tes besoins et trouve la bonne formule</div>
+              <div class="cat-link-label">Expertise Bien-être</div>
+              <div class="cat-link-sub">Formation certifiante · Apprendre les bases</div>
             </div>
             <svg class="cat-link-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
@@ -523,6 +573,12 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
   </div>
 </div>
 
+<button id="backToTop" class="back-to-top" title="Retour en haut">
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+  </svg>
+</button>
+
 <script>
   document.querySelectorAll('.shop-card img, .ebook-card img').forEach(img => {
     img.addEventListener('error', () => {
@@ -578,6 +634,19 @@ body::after{content:'';position:fixed;inset:0;background-image:radial-gradient(c
       e.target.classList.remove('open');
       document.body.style.overflow = '';
     }
+  });
+
+  // Gestion du bouton Retour en haut
+  const backToTopBtn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
